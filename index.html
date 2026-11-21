@@ -1,0 +1,1857 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <!-- BEEGREEN: All images use local relative paths under ./images/. Keep this folder next to the HTML file. -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BEE GREEN Co., Ltd. | Màng Bọc Thực Phẩm Sáp Ong Tự Nhiên</title>
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <meta name="description" content="Công ty TNHH BEE GREEN - Giải pháp màng bọc thực phẩm bằng sáp ong tự nhiên, tái sử dụng, phân hủy sinh học, thay thế nhựa dùng một lần.">
+    
+    <!-- Google Fonts: Plus Jakarta Sans & Playfair Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        honey: {
+                            50: '#FFFDF7',
+                            100: '#FDF7E2',
+                            200: '#FBEBC0',
+                            400: '#F4B942',
+                            500: '#E6A817',
+                            600: '#C88D0D',
+                            700: '#9E6D08',
+                        },
+                        forest: {
+                            50: '#F2F7F2',
+                            100: '#E0EDE0',
+                            200: '#C2DBC3',
+                            600: '#3A7D44',
+                            700: '#2D5A27',
+                            800: '#21441D',
+                            900: '#162F14',
+                        },
+                        cream: {
+                            base: '#FAF8F2',
+                            card: '#FFFDF7',
+                            warm: '#F3EFE4'
+                        },
+                        charcoal: {
+                            DEFAULT: '#2C2A25',
+                            light: '#57534A',
+                            muted: '#7E796D'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    },
+                    boxShadow: {
+                        'soft': '0 10px 40px -10px rgba(45, 90, 39, 0.08)',
+                        'honey': '0 10px 30px -5px rgba(230, 168, 23, 0.25)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom Styles for Honeycomb Patterns & Reveal Animations -->
+    <style>
+        body {
+            background-color: #FAF8F2;
+            color: #2C2A25;
+            overflow-x: hidden;
+        }
+
+        /* Subtle organic honeycomb background pattern */
+        .bg-honeycomb {
+            background-image: radial-gradient(#E6A817 0.75px, transparent 0.75px), radial-gradient(#3A7D44 0.75px, #FAF8F2 0.75px);
+            background-size: 32px 32px;
+            background-position: 0 0, 16px 16px;
+            opacity: 0.06;
+        }
+
+        /* Scroll Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: all 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Floating gentle animation for hero SVG elements */
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(1.5deg); }
+        }
+        .animate-float {
+            animation: floatSlow 6s ease-in-out infinite;
+        }
+        .animate-float-delayed {
+            animation: floatSlow 7s ease-in-out 2s infinite;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FAF8F2;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C2DBC3;
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3A7D44;
+        }
+
+        /* BEEGREEN: responsive local photography */
+        .beegreen-photo { width: 100%; display: block; object-position: center; }
+        .beegreen-photo--cover { object-fit: cover; }
+        .beegreen-photo--contain { object-fit: contain; }
+        .beegreen-photo-frame { overflow: hidden; background: #FFFDF7; border: 1px solid rgba(58,125,68,.12); }
+        .beegreen-photo-frame img { transition: transform .45s ease; }
+        .beegreen-photo-frame:hover img { transform: scale(1.025); }
+        @media (prefers-reduced-motion: reduce) { .beegreen-photo-frame img { transition: none; } }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-honey-200 selection:text-forest-900">
+
+    <!-- ==================== NAVIGATION BAR ==================== -->
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-cream-base/90 backdrop-blur-md border-b border-forest-700/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Brand Logo -->
+                <a href="#home" class="flex items-center gap-3 group focus:outline-none">
+                    <!-- Official BEEGREEN Logo Image with Fallback -->
+                    <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white p-1 flex items-center justify-center shadow-sm border border-forest-700/15 group-hover:scale-105 transition-transform duration-300 overflow-hidden shrink-0">
+                        <img src="images/logo.png" width="202" height="202" decoding="async"
+                                 alt="BEEGREEN - Màng bọc sáp ong thực phẩm tự nhiên" 
+                             class="w-full h-full object-contain">
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-serif font-bold text-xl sm:text-2xl tracking-tight text-forest-800 leading-none">
+                            BEE<span class="text-forest-600">GREEN</span>
+                        </span>
+                        <span class="text-[10px] font-semibold tracking-widest uppercase text-charcoal-muted mt-1" data-i18n="brand.sub">
+                            Co., Ltd. • Sống Xanh
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden lg:flex items-center space-x-7">
+                    <a href="#home" class="text-sm font-medium text-charcoal hover:text-forest-700 transition-colors" data-i18n="nav.home">Trang chủ</a>
+                    <a href="#about" class="text-sm font-medium text-charcoal hover:text-forest-700 transition-colors" data-i18n="nav.about">Về Bee Green</a>
+                    <a href="#product" class="text-sm font-medium text-charcoal hover:text-forest-700 transition-colors" data-i18n="nav.product">Sản phẩm</a>
+                    <a href="#features" class="text-sm font-medium text-charcoal hover:text-forest-700 transition-colors" data-i18n="nav.features">Đặc tính & Công dụng</a>
+                    <a href="#guide" class="text-sm font-medium text-charcoal hover:text-forest-700 transition-colors" data-i18n="nav.guide">Hướng dẫn sử dụng</a>
+                    <a href="#contact" class="text-sm font-medium text-charcoal hover:text-forest-700 transition-colors" data-i18n="nav.contact">Liên hệ</a>
+                </nav>
+
+                <!-- Language Switcher & Mobile Menu Button -->
+                <div class="flex items-center gap-3">
+                    <!-- 3-Language Switcher Pill -->
+                    <div class="inline-flex items-center bg-cream-warm p-1 rounded-full border border-forest-700/15 shadow-inner" role="group" aria-label="Language Switcher">
+                        <button type="button" onclick="setLanguage('vi')" id="lang-btn-vi" class="lang-btn px-2.5 py-1 text-xs font-bold rounded-full transition-all duration-200 bg-forest-700 text-white shadow-sm">
+                            VI
+                        </button>
+                        <button type="button" onclick="setLanguage('en')" id="lang-btn-en" class="lang-btn px-2.5 py-1 text-xs font-bold rounded-full transition-all duration-200 text-charcoal-light hover:text-forest-700">
+                            EN
+                        </button>
+                        <button type="button" onclick="setLanguage('fr')" id="lang-btn-fr" class="lang-btn px-2.5 py-1 text-xs font-bold rounded-full transition-all duration-200 text-charcoal-light hover:text-forest-700">
+                            FR
+                        </button>
+                    </div>
+
+                    <!-- Mobile Menu Toggle -->
+                    <button id="mobile-menu-btn" type="button" class="lg:hidden p-2.5 rounded-xl text-forest-800 hover:bg-forest-100 focus:outline-none transition-colors" aria-label="Toggle Menu">
+                        <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                        <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Navigation -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-cream-card border-b border-forest-700/10 px-4 pt-2 pb-6 shadow-lg">
+            <div class="flex flex-col space-y-2">
+                <a href="#home" class="mobile-nav-link px-4 py-3 rounded-xl text-base font-medium text-charcoal hover:bg-forest-50 hover:text-forest-700 transition-colors" data-i18n="nav.home">Trang chủ</a>
+                <a href="#about" class="mobile-nav-link px-4 py-3 rounded-xl text-base font-medium text-charcoal hover:bg-forest-50 hover:text-forest-700 transition-colors" data-i18n="nav.about">Về Bee Green</a>
+                <a href="#product" class="mobile-nav-link px-4 py-3 rounded-xl text-base font-medium text-charcoal hover:bg-forest-50 hover:text-forest-700 transition-colors" data-i18n="nav.product">Sản phẩm</a>
+                <a href="#features" class="mobile-nav-link px-4 py-3 rounded-xl text-base font-medium text-charcoal hover:bg-forest-50 hover:text-forest-700 transition-colors" data-i18n="nav.features">Đặc tính & Công dụng</a>
+                <a href="#guide" class="mobile-nav-link px-4 py-3 rounded-xl text-base font-medium text-charcoal hover:bg-forest-50 hover:text-forest-700 transition-colors" data-i18n="nav.guide">Hướng dẫn sử dụng</a>
+                <a href="#contact" class="mobile-nav-link px-4 py-3 rounded-xl text-base font-medium text-charcoal hover:bg-forest-50 hover:text-forest-700 transition-colors" data-i18n="nav.contact">Liên hệ</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section id="home" class="relative pt-28 pb-20 lg:pt-36 lg:pb-28 overflow-hidden">
+        <!-- Subtle Honeycomb Pattern Backdrop -->
+        <div class="absolute inset-0 bg-honeycomb pointer-events-none"></div>
+        <!-- Soft Organic Blobs -->
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-honey-400/15 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute top-1/2 -left-32 w-96 h-96 bg-forest-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                
+                <!-- Left Text Column -->
+                <div class="lg:col-span-6 text-center lg:text-left space-y-6">
+                    <!-- Eco Badge -->
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-forest-100/80 border border-forest-600/20 text-forest-800 text-xs sm:text-sm font-semibold">
+                        <span class="w-2 h-2 rounded-full bg-honey-500 animate-pulse"></span>
+                        <span data-i18n="hero.badge">100% Tự Nhiên • Tái Sử Dụng • Không Rác Thải Nhựa</span>
+                    </div>
+
+                    <!-- Main Headline -->
+                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-[54px] font-bold text-forest-900 leading-[1.15] tracking-tight" data-i18n="hero.title">
+                        Bảo Quản Thực Phẩm Tươi Ngon Bằng Tinh Túy Sáp Ong Tự Nhiên
+                    </h1>
+
+                    <!-- Subtitle -->
+                    <p class="text-base sm:text-lg text-charcoal-light leading-relaxed max-w-2xl mx-auto lg:mx-0" data-i18n="hero.subtitle">
+                        Công ty TNHH BEE GREEN mang đến giải pháp màng bọc thực phẩm hữu cơ thay thế hoàn toàn màng bọc nilon dùng một lần — an toàn cho sức khỏe gia đình và thân thiện với mẹ Trái Đất.
+                    </p>
+
+                    <!-- CTA Buttons (Showcase & B2B Inquiry) -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="#product" class="w-full sm:w-auto px-7 py-4 rounded-2xl bg-forest-700 hover:bg-forest-800 text-white font-semibold text-sm sm:text-base shadow-soft hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2">
+                            <span data-i18n="hero.ctaPrimary">Khám Phá Sản Phẩm</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </a>
+                        <a href="#contact" class="w-full sm:w-auto px-7 py-4 rounded-2xl bg-cream-card hover:bg-honey-100 text-forest-800 border-2 border-honey-500/60 font-semibold text-sm sm:text-base transition-all duration-300 flex items-center justify-center gap-2">
+                            <svg class="w-4 h-4 text-honey-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                            <span data-i18n="hero.ctaSecondary">Nhận Hồ Sơ Năng Lực & Tư Vấn</span>
+                        </a>
+                    </div>
+
+                    <!-- Trust Metrics -->
+                    <div class="grid grid-cols-3 gap-4 pt-6 border-t border-forest-700/10 max-w-lg mx-auto lg:mx-0">
+                        <div>
+                            <p class="font-serif text-2xl sm:text-3xl font-bold text-honey-600">100%</p>
+                            <p class="text-xs sm:text-sm text-charcoal-muted mt-0.5" data-i18n="hero.stat1">Nguyên liệu hữu cơ</p>
+                        </div>
+                        <div>
+                            <p class="font-serif text-2xl sm:text-3xl font-bold text-forest-700">6–12</p>
+                            <p class="text-xs sm:text-sm text-charcoal-muted mt-0.5" data-i18n="hero.stat2">Tháng tái sử dụng</p>
+                        </div>
+                        <div>
+                            <p class="font-serif text-2xl sm:text-3xl font-bold text-honey-600">0%</p>
+                            <p class="text-xs sm:text-sm text-charcoal-muted mt-0.5" data-i18n="hero.stat3">Nhựa & Hóa chất BPA</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Aesthetic Botanical & Beeswax Wrap Illustration -->
+                <div class="lg:col-span-6 relative">
+                    <div class="relative mx-auto max-w-lg lg:max-w-none">
+                        <!-- Decorative Main Card Container -->
+                        <div class="relative rounded-[2.25rem] bg-gradient-to-br from-honey-100 via-cream-card to-forest-100 p-6 sm:p-10 shadow-soft border border-honey-400/30">
+                            <!-- Official BEEGREEN Emblem Showcase Card -->
+                            <div class="bg-white/95 rounded-[1.75rem] p-6 sm:p-8 shadow-sm border border-forest-700/10 flex flex-col items-center justify-center relative overflow-hidden">
+                                <!-- Subtle Honeycomb Corner Accents -->
+                                <div class="absolute -top-6 -right-6 w-24 h-24 rounded-full bg-honey-400/15 pointer-events-none"></div>
+                                <div class="absolute -bottom-6 -left-6 w-24 h-24 rounded-full bg-forest-600/10 pointer-events-none"></div>
+                                
+                                <img src="images/logo.png" width="202" height="202" decoding="async"
+                                 alt="Logo Công ty TNHH BEE GREEN - Màng bọc sáp ong thực phẩm tự nhiên" 
+                                     class="w-64 sm:w-80 md:w-96 h-auto object-contain animate-float drop-shadow-sm">
+                            </div>
+
+                            <!-- Floating Certification Card Bottom Left -->
+                            <div class="mt-4 sm:mt-0 sm:absolute sm:-bottom-5 sm:left-6 bg-cream-card/95 backdrop-blur-md px-5 py-3.5 rounded-2xl shadow-soft border border-forest-600/20 flex items-center gap-3.5">
+                                <div class="w-10 h-10 rounded-xl bg-forest-100 text-forest-700 flex items-center justify-center shrink-0">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="text-xs font-bold text-forest-800 uppercase tracking-wider" data-i18n="hero.certTitle">Chuẩn An Toàn Thực Phẩm</p>
+                                    <p class="text-xs text-charcoal-muted" data-i18n="hero.certSub">Phân hủy sinh học 100% trong tự nhiên</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== ABOUT BEE GREEN SECTION ==================== -->
+    <section id="about" class="py-20 lg:py-28 bg-cream-card border-y border-forest-700/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center reveal">
+                
+                <!-- Left Visual Story Card -->
+                <div class="lg:col-span-5">
+                    <div class="relative rounded-3xl bg-forest-800 text-cream-card p-8 sm:p-10 shadow-soft overflow-hidden">
+                        <!-- Subtle decorative circles -->
+                        <div class="absolute -right-12 -bottom-12 w-48 h-48 rounded-full bg-honey-500/20"></div>
+                        <div class="absolute top-6 right-6 text-honey-400/30">
+                            <svg class="w-20 h-20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2L20.66 7V17L12 22L3.34 17V7L12 2Z"/>
+                            </svg>
+                        </div>
+
+                        <span class="inline-block px-3.5 py-1 rounded-full bg-honey-500/20 text-honey-400 text-xs font-bold tracking-wider uppercase mb-5" data-i18n="about.cardTag">
+                            Câu Chuyện Thương Hiệu
+                        </span>
+                        <h3 class="font-serif text-2xl sm:text-3xl font-bold text-white leading-snug mb-4" data-i18n="about.cardTitle">
+                            Từ Trăn Trở Về Rác Thải Nhựa Đến Giải Pháp Xanh Từ Tổ Ong
+                        </h3>
+                        <p class="text-forest-100/90 text-sm sm:text-base leading-relaxed mb-8" data-i18n="about.cardDesc">
+                            Mỗi năm, hàng triệu tấn màng bọc nhựa dùng một lần bị thải ra môi trường. Công ty TNHH BEE GREEN ra đời tại Việt Nam với khát vọng kết hợp nguồn sáp ong tự nhiên dồi dào cùng vải sợi hữu cơ để tạo nên những tấm màng bọc bền vững, an toàn và đậm bản sắc thủ công bản địa.
+                        </p>
+
+                        <!-- Production Process Mini Timeline -->
+                        <div class="space-y-4 pt-6 border-t border-white/15">
+                            <div class="flex items-start gap-3.5">
+                                <div class="w-7 h-7 rounded-full bg-honey-500 text-forest-900 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">01</div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-white" data-i18n="about.step1Title">Tuyển chọn nguyên liệu sạch</h4>
+                                    <p class="text-xs text-forest-200 mt-0.5" data-i18n="about.step1Desc">Sáp ong thô tinh luyện tự nhiên, vải cotton dệt mộc không tẩy trắng hóa học.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3.5">
+                                <div class="w-7 h-7 rounded-full bg-honey-500 text-forest-900 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">02</div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-white" data-i18n="about.step2Title">Phủ sáp thủ công tỉ mỉ</h4>
+                                    <p class="text-xs text-forest-200 mt-0.5" data-i18n="about.step2Desc">Kiểm soát nhiệt độ chuẩn xác giúp hỗn hợp sáp thẩm thấu đều từng thớ vải.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3.5">
+                                <div class="w-7 h-7 rounded-full bg-honey-500 text-forest-900 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">03</div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-white" data-i18n="about.step3Title">Kiểm định chất lượng & Đóng gói xanh</h4>
+                                    <p class="text-xs text-forest-200 mt-0.5" data-i18n="about.step3Desc">Bao bì giấy tái chế 100%, sẵn sàng đồng hành cùng căn bếp hiện đại.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Company Overview & Core Values -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center gap-2 text-forest-700 font-bold text-xs uppercase tracking-widest">
+                        <span class="w-8 h-[2px] bg-honey-500"></span>
+                        <span data-i18n="about.eyebrow">Về Công Ty TNHH BEE GREEN</span>
+                    </div>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-forest-900 leading-tight" data-i18n="about.title">
+                        Tiên Phong Kiến Tạo Lối Sống Xanh Bền Vững Trong Từng Gian Bếp
+                    </h2>
+                    <p class="text-charcoal-light text-base leading-relaxed" data-i18n="about.p1">
+                        <strong>Công ty TNHH BEE GREEN (BEE GREEN Co., Ltd.)</strong> là doanh nghiệp chuyên nghiên cứu, sản xuất và cung ứng các dòng sản phẩm bao bì bảo quản thực phẩm sinh thái từ nguyên liệu tự nhiên tại Việt Nam.
+                    </p>
+                    <p class="text-charcoal-light text-base leading-relaxed" data-i18n="about.p2">
+                        Chúng tôi không chỉ tạo ra một sản phẩm thay thế nhựa thông thường, mà còn lan tỏa triết lý tiêu dùng có trách nhiệm: trân trọng thực phẩm tươi sạch, bảo vệ sức khỏe con người và gìn giữ hệ sinh thái tự nhiên cho thế hệ tương lai.
+                    </p>
+
+                    <!-- 3 Core Values Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
+                        <!-- Value 1 -->
+                        <div class="p-5 rounded-2xl bg-cream-base border border-forest-700/10 hover:border-honey-500/50 transition-colors">
+                            <div class="w-11 h-11 rounded-xl bg-forest-100 text-forest-700 flex items-center justify-center mb-4">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="font-bold text-forest-900 text-base mb-1.5" data-i18n="about.val1Title">Bền Vững</h3>
+                            <p class="text-xs text-charcoal-light leading-relaxed" data-i18n="about.val1Desc">
+                                Giảm thiểu rác thải nhựa dùng một lần, vòng đời sản phẩm khép kín và phân hủy sinh học hoàn toàn.
+                            </p>
+                        </div>
+
+                        <!-- Value 2 -->
+                        <div class="p-5 rounded-2xl bg-cream-base border border-forest-700/10 hover:border-honey-500/50 transition-colors">
+                            <div class="w-11 h-11 rounded-xl bg-honey-100 text-honey-700 flex items-center justify-center mb-4">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="font-bold text-forest-900 text-base mb-1.5" data-i18n="about.val2Title">An Toàn Tuyệt Đối</h3>
+                            <p class="text-xs text-charcoal-light leading-relaxed" data-i18n="about.val2Desc">
+                                Không chứa BPA, phthalates hay hóa chất tổng hợp; an toàn khi tiếp xúc trực tiếp với thực phẩm.
+                            </p>
+                        </div>
+
+                        <!-- Value 3 -->
+                        <div class="p-5 rounded-2xl bg-cream-base border border-forest-700/10 hover:border-honey-500/50 transition-colors">
+                            <div class="w-11 h-11 rounded-xl bg-forest-100 text-forest-700 flex items-center justify-center mb-4">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="font-bold text-forest-900 text-base mb-1.5" data-i18n="about.val3Title">Đổi Mới Bản Địa</h3>
+                            <p class="text-xs text-charcoal-light leading-relaxed" data-i18n="about.val3Desc">
+                                Cải tiến công thức phủ sáp phù hợp khí hậu nhiệt đới, nâng cao độ dẻo dai và thẩm mỹ họa tiết.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PRODUCT & 4 NATURAL INGREDIENTS SECTION ==================== -->
+    <section id="product" class="py-20 lg:py-28 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <span class="inline-block px-4 py-1.5 rounded-full bg-honey-100 text-honey-700 text-xs font-bold uppercase tracking-widest mb-3" data-i18n="product.eyebrow">
+                    Sản Phẩm Chủ Lực
+                </span>
+                <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-forest-900 mb-4" data-i18n="product.title">
+                    Màng Bọc Thực Phẩm Sáp Ong BEE GREEN
+                </h2>
+                <p class="text-charcoal-light text-base sm:text-lg leading-relaxed" data-i18n="product.subtitle">
+                    Sự kết hợp hoàn hảo từ 4 nguyên liệu 100% tự nhiên tạo nên lớp màng bảo vệ mềm mại, có khả năng tự kết dính bằng hơi ấm đôi tay và giữ trọn độ tươi ngon của thực phẩm.
+                </p>
+            </div>
+
+
+            <!-- ==================== BEEGREEN PRODUCT & PACKAGING PHOTO SHOWCASE ==================== -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-12 reveal" aria-label="BEEGREEN product photography">
+                <figure class="lg:col-span-7 rounded-3xl bg-white border border-forest-700/10 shadow-soft p-5 sm:p-7 overflow-hidden">
+                    <div class="beegreen-photo-frame rounded-2xl bg-white flex items-center justify-center">
+                        <img src="images/trang trí.png" width="548" height="439" loading="lazy" decoding="async"
+                             alt="Màng bọc thực phẩm sáp ong với họa tiết tổ ong và cây lá, hình giới thiệu BEEGREEN"
+                             class="beegreen-photo beegreen-photo--contain h-64 sm:h-80" />
+                    </div>
+                    <figcaption class="pt-5">
+                        <p class="text-xs uppercase font-bold tracking-widest text-honey-700" data-i18n="showcase.productLabel">Cảm hứng thiết kế</p>
+                        <h3 class="font-serif text-xl sm:text-2xl font-bold text-forest-900 mt-1" data-i18n="showcase.productCaption">Màng bọc sáp ong họa tiết thiên nhiên</h3>
+                    </figcaption>
+                </figure>
+                <figure class="lg:col-span-5 rounded-3xl bg-forest-50 border border-forest-700/10 shadow-soft p-5 sm:p-7 overflow-hidden">
+                    <div class="beegreen-photo-frame rounded-2xl bg-white flex items-center justify-center">
+                        <img src="images/bao bì.png" width="502" height="686" loading="lazy" decoding="async"
+                             alt="Bao bì BEEGREEN Beeswax Food Wrap, bộ ba kích cỡ S M L"
+                             class="beegreen-photo beegreen-photo--contain h-64 sm:h-80" />
+                    </div>
+                    <figcaption class="pt-5">
+                        <p class="text-xs uppercase font-bold tracking-widest text-forest-700" data-i18n="showcase.packagingLabel">Hình ảnh bao bì</p>
+                        <h3 class="font-serif text-xl sm:text-2xl font-bold text-forest-900 mt-1" data-i18n="showcase.packagingCaption">Bộ màng bọc BEEGREEN — 3 kích cỡ S, M, L</h3>
+                    </figcaption>
+                </figure>
+            </div>
+
+            <!-- 4 Natural Ingredients Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20 reveal">
+                
+                <!-- Ingredient 1: Pure Beeswax -->
+                <div class="bg-cream-card rounded-3xl p-7 border border-honey-400/30 shadow-soft hover:-translate-y-1.5 transition-all duration-300">
+                    <!-- Ảnh nguyên liệu 1: mật ong - ghép vào chỗ hình ảnh nguyên liệu.png -->
+                    <figure class="beegreen-photo-frame rounded-2xl mb-5">
+                        <img src="images/mật ong - ghép vào chỗ hình ảnh nguyên liệu.png" alt="Hình tổ sáp ong và mật ong nguyên chất – nguyên liệu tự nhiên" width="613" height="706" loading="lazy" decoding="async" class="beegreen-photo beegreen-photo--cover h-44" />
+                    </figure>
+                    <div class="w-14 h-14 rounded-2xl bg-honey-100 flex items-center justify-center mb-5 text-honey-600">
+                        <svg class="w-8 h-8" viewBox="0 0 32 32" fill="none">
+                            <path d="M16 4L26 9.8V21.2L16 27L6 21.2V9.8L16 4Z" fill="#F4B942" fill-opacity="0.3" stroke="#C88D0D" stroke-width="2"/>
+                            <path d="M16 10L21 12.9V18.7L16 21.6L11 18.7V12.9L16 10Z" fill="#E6A817"/>
+                        </svg>
+                    </div>
+                    <span class="text-xs font-bold uppercase tracking-wider text-honey-600" data-i18n="ing.tag1">Thành phần 01</span>
+                    <h3 class="font-serif text-xl font-bold text-forest-900 mt-1 mb-2.5" data-i18n="ing.title1">Sáp Ong Nguyên Chất</h3>
+                    <p class="text-sm text-charcoal-light leading-relaxed" data-i18n="ing.desc1">
+                        Khai thác bền vững từ các trang trại ong tự nhiên, tạo lớp màng chống thấm nước, kháng khuẩn và giữ ẩm tự nhiên cho thực phẩm.
+                    </p>
+                </div>
+
+                <!-- Ingredient 2: Organic Cotton -->
+                <div class="bg-cream-card rounded-3xl p-7 border border-forest-600/20 shadow-soft hover:-translate-y-1.5 transition-all duration-300">
+                    <!-- Ảnh nguyên liệu 2: vải.png -->
+                    <figure class="beegreen-photo-frame rounded-2xl mb-5">
+                        <img src="images/vải.png" alt="Cận cảnh cấu trúc sợi vải cotton họa tiết lá" width="820" height="1137" loading="lazy" decoding="async" class="beegreen-photo beegreen-photo--cover h-44" />
+                    </figure>
+                    <div class="w-14 h-14 rounded-2xl bg-forest-100 flex items-center justify-center mb-5 text-forest-700">
+                        <svg class="w-8 h-8" viewBox="0 0 32 32" fill="none">
+                            <circle cx="16" cy="14" r="6" fill="#3A7D44" fill-opacity="0.25" stroke="#2D5A27" stroke-width="2"/>
+                            <circle cx="11" cy="17" r="5" fill="#FFFDF7" stroke="#2D5A27" stroke-width="2"/>
+                            <circle cx="21" cy="17" r="5" fill="#FFFDF7" stroke="#2D5A27" stroke-width="2"/>
+                            <path d="M16 22V28M12 25L16 23L20 25" stroke="#2D5A27" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <span class="text-xs font-bold uppercase tracking-wider text-forest-700" data-i18n="ing.tag2">Thành phần 02</span>
+                    <h3 class="font-serif text-xl font-bold text-forest-900 mt-1 mb-2.5" data-i18n="ing.title2">Vải Cotton Hữu Cơ</h3>
+                    <p class="text-sm text-charcoal-light leading-relaxed" data-i18n="ing.desc2">
+                        Sợi bông 100% cotton mềm mịn, thoáng khí, không nhuộm hóa chất độc hại, tạo cấu trúc bền chắc giúp tái sử dụng hàng trăm lần.
+                    </p>
+                </div>
+
+                <!-- Ingredient 3: Natural Tree Resin -->
+                <div class="bg-cream-card rounded-3xl p-7 border border-honey-400/30 shadow-soft hover:-translate-y-1.5 transition-all duration-300">
+                    <div class="w-14 h-14 rounded-2xl bg-honey-100 flex items-center justify-center mb-5 text-honey-600">
+                        <svg class="w-8 h-8" viewBox="0 0 32 32" fill="none">
+                            <path d="M16 5C16 5 24 14.5 24 20C24 24.4183 20.4183 28 16 28C11.5817 28 8 24.4183 8 20C8 14.5 16 5 16 5Z" fill="#E6A817" fill-opacity="0.35" stroke="#C88D0D" stroke-width="2"/>
+                            <path d="M13 21C13 22.6569 14.3431 24 16 24" stroke="#9E6D08" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <span class="text-xs font-bold uppercase tracking-wider text-honey-600" data-i18n="ing.tag3">Thành phần 03</span>
+                    <h3 class="font-serif text-xl font-bold text-forest-900 mt-1 mb-2.5" data-i18n="ing.title3">Nhựa Thông Tự Nhiên</h3>
+                    <p class="text-sm text-charcoal-light leading-relaxed" data-i18n="ing.desc3">
+                        Nhựa cây thông tinh khiết mang lại độ bám dính tự nhiên đặc trưng, giúp màng bọc ôm khít miệng bát hoặc bề mặt rau củ.
+                    </p>
+                </div>
+
+                <!-- Ingredient 4: Organic Jojoba / Coconut Oil -->
+                <div class="bg-cream-card rounded-3xl p-7 border border-forest-600/20 shadow-soft hover:-translate-y-1.5 transition-all duration-300">
+                    <!-- Ảnh nguyên liệu 4: dau-jojoba-lam-dep-da.jpg -->
+                    <figure class="beegreen-photo-frame rounded-2xl mb-5">
+                        <img src="images/dau-jojoba-lam-dep-da.jpg" alt="Chai dầu jojoba và hạt jojoba – nguyên liệu làm mềm sáp" width="900" height="600" loading="lazy" decoding="async" class="beegreen-photo beegreen-photo--cover h-44" />
+                    </figure>
+                    <div class="w-14 h-14 rounded-2xl bg-forest-100 flex items-center justify-center mb-5 text-forest-700">
+                        <svg class="w-8 h-8" viewBox="0 0 32 32" fill="none">
+                            <path d="M9 22C9 15 15 9 23 9C23 17 17 23 9 22Z" fill="#3A7D44" fill-opacity="0.3" stroke="#2D5A27" stroke-width="2"/>
+                            <circle cx="21" cy="22" r="4" fill="#F4B942" stroke="#C88D0D" stroke-width="1.5"/>
+                        </svg>
+                    </div>
+                    <span class="text-xs font-bold uppercase tracking-wider text-forest-700" data-i18n="ing.tag4">Thành phần 04</span>
+                    <h3 class="font-serif text-xl font-bold text-forest-900 mt-1 mb-2.5" data-i18n="ing.title4">Dầu Jojoba & Dầu Dừa</h3>
+                    <p class="text-sm text-charcoal-light leading-relaxed" data-i18n="ing.desc4">
+                        Dầu thực vật ép lạnh hữu cơ giúp lớp sáp mềm dẻo, không bị nứt gãy khi gấp nếp và tăng cường khả năng kháng khuẩn tự nhiên.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Interactive Product Specifications & Standard Sizes Showcase (No E-commerce / Informational Only) -->
+            <div class="bg-cream-card rounded-[2rem] p-6 sm:p-10 lg:p-12 border border-forest-700/15 shadow-soft reveal">
+                <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8 pb-6 border-b border-forest-700/10">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-widest text-forest-700" data-i18n="sizes.eyebrow">Quy Cách & Thông Số Kỹ Thuật</span>
+                        <h3 class="font-serif text-2xl sm:text-3xl font-bold text-forest-900 mt-1" data-i18n="sizes.title">
+                            Kích Thước Tiêu Chuẩn Cho Mọi Nhu Cầu Bảo Quản
+                        </h3>
+                    </div>
+                    <!-- Interactive Size Filter Tabs -->
+                    <div class="inline-flex flex-wrap gap-2 bg-cream-base p-1.5 rounded-2xl border border-forest-700/10">
+                        <button type="button" onclick="selectSizeTab('all')" id="size-tab-all" class="size-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-forest-700 text-white transition-all" data-i18n="sizes.tabAll">
+                            Tất cả kích cỡ
+                        </button>
+                        <button type="button" onclick="selectSizeTab('S')" id="size-tab-S" class="size-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold text-charcoal-light hover:text-forest-700 transition-all">
+                            Size S (20×20 cm)
+                        </button>
+                        <button type="button" onclick="selectSizeTab('M')" id="size-tab-M" class="size-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold text-charcoal-light hover:text-forest-700 transition-all">
+                            Size M (28×28 cm)
+                        </button>
+                        <button type="button" onclick="selectSizeTab('L')" id="size-tab-L" class="size-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold text-charcoal-light hover:text-forest-700 transition-all">
+                            Size L (35×35 cm)
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Size Cards Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="size-cards-container">
+                    
+                    <!-- Size S Card -->
+                    <div data-size="S" class="size-card rounded-2xl bg-cream-base p-6 border border-forest-700/10 flex flex-col justify-between transition-all duration-300">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="px-3 py-1 rounded-lg bg-honey-200/70 text-honey-700 font-bold text-xs">SIZE S</span>
+                                <span class="font-mono text-sm font-bold text-forest-800">20 × 20 cm</span>
+                            </div>
+                            <!-- Visual Proportion Box -->
+                            <div class="h-32 rounded-xl bg-honey-50 border border-dashed border-honey-500/40 flex items-center justify-center mb-5">
+                                <div class="w-16 h-16 rounded-lg bg-gradient-to-br from-honey-400 to-honey-500 shadow-sm flex items-center justify-center text-white font-bold text-xs">
+                                    20×20
+                                </div>
+                            </div>
+                            <h4 class="font-bold text-lg text-forest-900 mb-2" data-i18n="sizes.sTitle">Cỡ Nhỏ — Trái Cây & Chén Nhỏ</h4>
+                            <p class="text-sm text-charcoal-light leading-relaxed mb-4" data-i18n="sizes.sDesc">
+                                Lý tưởng để bọc nửa quả chanh, quả bơ, hành tây, dưa chuột cắt dở, hũ gia vị hoặc đậy miệng cốc/chén nhỏ.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-forest-700/10 flex items-center justify-between text-xs text-charcoal-muted">
+                            <span data-i18n="sizes.specLabel">Định lượng sáp chuẩn:</span>
+                            <span class="font-semibold text-forest-800">~18g / tấm</span>
+                        </div>
+                    </div>
+
+                    <!-- Size M Card -->
+                    <div data-size="M" class="size-card rounded-2xl bg-cream-base p-6 border-2 border-honey-500/50 flex flex-col justify-between relative transition-all duration-300">
+                        <span class="absolute -top-3 right-5 px-3 py-0.5 rounded-full bg-forest-700 text-white text-[11px] font-bold tracking-wide" data-i18n="sizes.popularBadge">
+                            Phổ Biến Nhất
+                        </span>
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="px-3 py-1 rounded-lg bg-forest-100 text-forest-800 font-bold text-xs">SIZE M</span>
+                                <span class="font-mono text-sm font-bold text-forest-800">28 × 28 cm</span>
+                            </div>
+                            <!-- Visual Proportion Box -->
+                            <div class="h-32 rounded-xl bg-honey-50 border border-dashed border-honey-500/40 flex items-center justify-center mb-5">
+                                <div class="w-22 h-22 w-[84px] h-[84px] rounded-lg bg-gradient-to-br from-forest-600 to-forest-700 shadow-sm flex items-center justify-center text-white font-bold text-xs">
+                                    28×28
+                                </div>
+                            </div>
+                            <h4 class="font-bold text-lg text-forest-900 mb-2" data-i18n="sizes.mTitle">Cỡ Trung — Tô Thức Ăn & Bánh Mì</h4>
+                            <p class="text-sm text-charcoal-light leading-relaxed mb-4" data-i18n="sizes.mDesc">
+                                Kích thước đa năng nhất để đậy tô canh, đĩa thức ăn, gói bánh mì sandwich, phô mai khối hoặc các loại rau củ vừa.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-forest-700/10 flex items-center justify-between text-xs text-charcoal-muted">
+                            <span data-i18n="sizes.specLabel">Định lượng sáp chuẩn:</span>
+                            <span class="font-semibold text-forest-800">~35g / tấm</span>
+                        </div>
+                    </div>
+
+                    <!-- Size L Card -->
+                    <div data-size="L" class="size-card rounded-2xl bg-cream-base p-6 border border-forest-700/10 flex flex-col justify-between transition-all duration-300">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="px-3 py-1 rounded-lg bg-honey-200/70 text-honey-700 font-bold text-xs">SIZE L</span>
+                                <span class="font-mono text-sm font-bold text-forest-800">35 × 35 cm</span>
+                            </div>
+                            <!-- Visual Proportion Box -->
+                            <div class="h-32 rounded-xl bg-honey-50 border border-dashed border-honey-500/40 flex items-center justify-center mb-5">
+                                <div class="w-28 h-28 rounded-lg bg-gradient-to-br from-honey-500 to-forest-600 shadow-sm flex items-center justify-center text-white font-bold text-xs">
+                                    35×35
+                                </div>
+                            </div>
+                            <h4 class="font-bold text-lg text-forest-900 mb-2" data-i18n="sizes.lTitle">Cỡ Lớn — Rau Xanh & Dưa Hấu</h4>
+                            <p class="text-sm text-charcoal-light leading-relaxed mb-4" data-i18n="sizes.lDesc">
+                                Phù hợp bọc nửa quả dưa hấu, bắp cải, bó rau lá lớn, ổ bánh mì sourdough nguyên ổ hoặc khay đựng thực phẩm lớn.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-forest-700/10 flex items-center justify-between text-xs text-charcoal-muted">
+                            <span data-i18n="sizes.specLabel">Định lượng sáp chuẩn:</span>
+                            <span class="font-semibold text-forest-800">~52g / tấm</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- OEM / Custom B2B Note -->
+                <div class="mt-6 p-4 rounded-2xl bg-forest-50 border border-forest-600/20 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-full bg-forest-700 text-white flex items-center justify-center shrink-0">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <p class="text-xs sm:text-sm text-forest-900 font-medium" data-i18n="sizes.oemNote">
+                            BEE GREEN nhận sản xuất kích thước và in họa tiết thương hiệu riêng (OEM/ODM) cho doanh nghiệp, quà tặng xanh và đối tác xuất khẩu.
+                        </p>
+                    </div>
+                    <a href="#contact" class="shrink-0 text-xs sm:text-sm font-bold text-forest-700 hover:text-honey-600 underline underline-offset-4" data-i18n="sizes.oemLink">
+                        Liên hệ nhận thông số chi tiết →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FEATURES, PROPERTIES & APPLICATIONS SECTION ==================== -->
+    <section id="features" class="py-20 lg:py-28 bg-forest-900 text-cream-card relative overflow-hidden">
+        <!-- Decorative organic background accents -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-honey-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-forest-600/20 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <!-- Part 1: 5 Key Technical & Biological Properties -->
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <span class="inline-block px-4 py-1.5 rounded-full bg-honey-500/20 text-honey-400 text-xs font-bold uppercase tracking-widest mb-3" data-i18n="feat.eyebrow">
+                    Đặc Điểm & Đặc Tính Nổi Bật
+                </span>
+                <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4" data-i18n="feat.title">
+                    Vì Sao Màng Bọc Sáp Ong Vượt Trội Hơn Màng Nhựa?
+                </h2>
+                <p class="text-forest-200 text-base sm:text-lg leading-relaxed" data-i18n="feat.subtitle">
+                    Cơ chế bảo quản sinh học thông minh mô phỏng cấu trúc tự nhiên của tổ ong giúp thực phẩm tươi lâu hơn mà không gây hại cho môi trường.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-24 reveal">
+                <!-- Property 1: Natural Antibacterial -->
+                <div class="p-7 rounded-3xl bg-forest-800/80 border border-white/10 hover:border-honey-400/50 transition-all duration-300">
+                    <div class="w-12 h-12 rounded-2xl bg-honey-500/20 text-honey-400 flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-white mb-2.5" data-i18n="feat.p1Title">Kháng Khuẩn Tự Nhiên</h3>
+                    <p class="text-sm text-forest-200 leading-relaxed" data-i18n="feat.p1Desc">
+                        Sáp ong nguyên chất và nhựa thông sở hữu đặc tính kháng khuẩn và kháng nấm tự nhiên, ức chế sự phát triển của vi sinh vật gây hư hỏng thực phẩm.
+                    </p>
+                </div>
+
+                <!-- Property 2: Breathable & Moisture-retaining -->
+                <div class="p-7 rounded-3xl bg-forest-800/80 border border-white/10 hover:border-honey-400/50 transition-all duration-300">
+                    <div class="w-12 h-12 rounded-2xl bg-forest-600/40 text-honey-400 flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-white mb-2.5" data-i18n="feat.p2Title">Thoáng Khí & Giữ Ẩm Cân Bằng</h3>
+                    <p class="text-sm text-forest-200 leading-relaxed" data-i18n="feat.p2Desc">
+                        Không gây bí hơi hay đọng nước như màng nilon. Màng sáp ong cho phép rau củ, phô mai và bánh mì "thở" tự nhiên, giữ độ giòn và độ ẩm lý tưởng.
+                    </p>
+                </div>
+
+                <!-- Property 3: Self-adhesive by Hand Warmth -->
+                <div class="p-7 rounded-3xl bg-forest-800/80 border border-white/10 hover:border-honey-400/50 transition-all duration-300">
+                    <div class="w-12 h-12 rounded-2xl bg-honey-500/20 text-honey-400 flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-white mb-2.5" data-i18n="feat.p3Title">Tự Dính Bằng Hơi Ấm Bàn Tay</h3>
+                    <p class="text-sm text-forest-200 leading-relaxed" data-i18n="feat.p3Desc">
+                        Chỉ cần áp nhẹ đôi bàn tay trong vài giây, nhiệt độ cơ thể làm mềm lớp sáp và nhựa thông giúp tấm màng ôm chặt mọi hình dáng tô đĩa hay trái cây.
+                    </p>
+                </div>
+
+                <!-- Property 4: Reusable & 100% Biodegradable -->
+                <div class="p-7 rounded-3xl bg-forest-800/80 border border-white/10 hover:border-honey-400/50 transition-all duration-300">
+                    <div class="w-12 h-12 rounded-2xl bg-forest-600/40 text-honey-400 flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-white mb-2.5" data-i18n="feat.p4Title">Tái Sử Dụng & Phân Hủy Sinh Học</h3>
+                    <p class="text-sm text-forest-200 leading-relaxed" data-i18n="feat.p4Desc">
+                        Có thể rửa sạch và tái sử dụng từ 6 đến 12 tháng. Khi hết vòng đời sử dụng, sản phẩm phân hủy sinh học 100% thành mùn hữu cơ thân thiện với đất.
+                    </p>
+                </div>
+
+                <!-- Property 5: BPA-Free & Non-Toxic -->
+                <div class="p-7 rounded-3xl bg-forest-800/80 border border-white/10 hover:border-honey-400/50 transition-all duration-300 md:col-span-2 lg:col-span-2">
+                    <div class="flex flex-col sm:flex-row sm:items-center gap-5">
+                        <div class="w-14 h-14 rounded-2xl bg-honey-500/20 text-honey-400 flex items-center justify-center shrink-0">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-serif text-xl font-bold text-white mb-2" data-i18n="feat.p5Title">Không Chứa BPA & Hóa Chất Độc Hại — An Toàn Cho Sức Khỏe</h3>
+                            <p class="text-sm text-forest-200 leading-relaxed" data-i18n="feat.p5Desc">
+                                Khác với màng bọc nhựa PVC/PE có nguy cơ thôi nhiễm vi nhựa và chất phụ gia hóa dẻo vào thức ăn, màng bọc sáp ong BEE GREEN hoàn toàn thuần khiết từ thiên nhiên, mang lại hương thơm dịu nhẹ của mật ong rừng và an toàn cho cả trẻ nhỏ.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Part 2: Practical Uses & Applications + Safety Notes -->
+            <div class="bg-cream-card text-charcoal rounded-[2.25rem] p-7 sm:p-10 lg:p-12 shadow-xl reveal">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+                    
+                    <!-- Left: Practical Uses Grid -->
+                    <div class="lg:col-span-8">
+                        <span class="text-xs font-bold uppercase tracking-widest text-forest-700" data-i18n="uses.eyebrow">Công Dụng & Ứng Dụng Thực Tế</span>
+                        <h3 class="font-serif text-2xl sm:text-3xl font-bold text-forest-900 mt-1 mb-6" data-i18n="uses.title">
+                            Đa Năng Trong Mọi Hoạt Động Của Đời Sống Hàng Ngày
+                        </h3>
+
+
+                        <!-- Hình ảnh công dụng thực tế: ảnh do người dùng cung cấp -->
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-7" aria-label="Hình ảnh ứng dụng bảo quản thực phẩm">
+                            <figure class="beegreen-photo-frame rounded-2xl bg-cream-base">
+                                <img src="images/rau củ.png" alt="Các loại rau củ tươi được đựng trong túi bảo quản có thể tái sử dụng"
+                                     width="1200" height="896" loading="lazy" decoding="async" class="beegreen-photo beegreen-photo--cover h-36 sm:h-32 lg:h-36" />
+                                <figcaption class="px-3 py-3 text-xs sm:text-sm font-semibold text-forest-800" data-i18n="showcase.vegetables">Bảo quản rau củ</figcaption>
+                            </figure>
+                            <figure class="beegreen-photo-frame rounded-2xl bg-cream-base">
+                                <img src="images/bánh mì.png" alt="Ổ bánh mì đặt trên tấm màng bọc sáp ong họa tiết tổ ong"
+                                     width="1152" height="864" loading="lazy" decoding="async" class="beegreen-photo beegreen-photo--cover h-36 sm:h-32 lg:h-36" />
+                                <figcaption class="px-3 py-3 text-xs sm:text-sm font-semibold text-forest-800" data-i18n="showcase.bread">Gói bánh mì</figcaption>
+                            </figure>
+                            <figure class="beegreen-photo-frame rounded-2xl bg-cream-base">
+                                <img src="images/chén bát.png" alt="Các chén bát gốm sứ có màng đậy bảo quản thức ăn"
+                                     width="1200" height="896" loading="lazy" decoding="async" class="beegreen-photo beegreen-photo--cover h-36 sm:h-32 lg:h-36" />
+                                <figcaption class="px-3 py-3 text-xs sm:text-sm font-semibold text-forest-800" data-i18n="showcase.bowls">Đậy chén, bát và tô</figcaption>
+                            </figure>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <!-- Use 1 -->
+                            <div class="p-4 rounded-2xl bg-cream-base border border-forest-700/10 flex items-start gap-3.5">
+                                <span class="text-2xl shrink-0" role="img" aria-label="Fruit">🥑</span>
+                                <div>
+                                    <h4 class="font-bold text-forest-900 text-sm sm:text-base" data-i18n="uses.u1Title">Bọc Trái Cây Cắt Dở</h4>
+                                    <p class="text-xs sm:text-sm text-charcoal-light mt-1" data-i18n="uses.u1Desc">Giữ nửa quả bơ, chanh, táo, dưa hấu không bị thâm xỉn hay khô bề mặt trong tủ lạnh.</p>
+                                </div>
+                            </div>
+
+                            <!-- Use 2 -->
+                            <div class="p-4 rounded-2xl bg-cream-base border border-forest-700/10 flex items-start gap-3.5">
+                                <span class="text-2xl shrink-0" role="img" aria-label="Vegetables">🥬</span>
+                                <div>
+                                    <h4 class="font-bold text-forest-900 text-sm sm:text-base" data-i18n="uses.u2Title">Gói Rau Củ & Thảo Mộc Tươi</h4>
+                                    <p class="text-xs sm:text-sm text-charcoal-light mt-1" data-i18n="uses.u2Desc">Giúp xà lách, rau thơm, cà rốt, bông cải xanh tươi giòn lâu hơn gấp nhiều ngày.</p>
+                                </div>
+                            </div>
+
+                            <!-- Use 3 -->
+                            <div class="p-4 rounded-2xl bg-cream-base border border-forest-700/10 flex items-start gap-3.5">
+                                <span class="text-2xl shrink-0" role="img" aria-label="Bread">🥖</span>
+                                <div>
+                                    <h4 class="font-bold text-forest-900 text-sm sm:text-base" data-i18n="uses.u3Title">Bọc Bánh Mì & Phô Mai</h4>
+                                    <p class="text-xs sm:text-sm text-charcoal-light mt-1" data-i18n="uses.u3Desc">Giữ lớp vỏ bánh mì thủ công giòn rụm, ruột mềm ẩm và bảo quản phô mai chuẩn vị.</p>
+                                </div>
+                            </div>
+
+                            <!-- Use 4 -->
+                            <div class="p-4 rounded-2xl bg-cream-base border border-forest-700/10 flex items-start gap-3.5">
+                                <span class="text-2xl shrink-0" role="img" aria-label="Bowl">🥗</span>
+                                <div>
+                                    <h4 class="font-bold text-forest-900 text-sm sm:text-base" data-i18n="uses.u4Title">Đậy Bát, Tô & Đĩa Thức Ăn</h4>
+                                    <p class="text-xs sm:text-sm text-charcoal-light mt-1" data-i18n="uses.u4Desc">Ôm sát miệng tô thủy tinh, gốm sứ, inox để bảo quản thức ăn đã nấu chín để nguội.</p>
+                                </div>
+                            </div>
+
+                            <!-- Use 5 -->
+                            <div class="p-4 rounded-2xl bg-cream-base border border-forest-700/10 flex items-start gap-3.5 sm:col-span-2">
+                                <span class="text-2xl shrink-0" role="img" aria-label="Picnic">🧺</span>
+                                <div>
+                                    <h4 class="font-bold text-forest-900 text-sm sm:text-base" data-i18n="uses.u5Title">Gói Đồ Ăn Nhẹ Văn Phòng & Dã Ngoại (Picnic)</h4>
+                                    <p class="text-xs sm:text-sm text-charcoal-light mt-1" data-i18n="uses.u5Desc">Thay thế hộp nhựa cồng kềnh để gói bánh sandwich, hạt dinh dưỡng, trái cây khô khi đi làm, đi học hoặc dã ngoại ngoài trời.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Important Usage Contraindications Box -->
+                    <div class="lg:col-span-4 bg-honey-100/80 border border-honey-500/40 rounded-3xl p-6">
+                        <div class="flex items-center gap-2.5 text-honey-700 font-bold text-base mb-4">
+                            <svg class="w-6 h-6 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                            </svg>
+                            <h4 data-i18n="uses.warnTitle">Lưu Ý Quan Trọng Khi Sử Dụng</h4>
+                        </div>
+                        <ul class="space-y-3.5 text-sm text-charcoal">
+                            <li class="flex items-start gap-2.5">
+                                <span class="text-red-600 font-bold mt-0.5">✕</span>
+                                <span data-i18n="uses.warn1"><strong>Không dùng cho thịt sống, cá sống hoặc hải sản tươi sống</strong> (do không thể rửa màng bọc bằng nước sôi khử khuẩn).</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <span class="text-red-600 font-bold mt-0.5">✕</span>
+                                <span data-i18n="uses.warn2"><strong>Tránh nhiệt độ cao:</strong> Không dùng trong lò vi sóng, lò nướng, máy rửa chén hoặc bọc thức ăn còn đang nóng hổi (sáp ong tan chảy ở ~60°C).</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <span class="text-forest-700 font-bold mt-0.5">✓</span>
+                                <span data-i18n="uses.warn3"><strong>An toàn trong ngăn mát & ngăn đông:</strong> Có thể bảo quản thực phẩm trong ngăn đông tủ lạnh tối đa 1 tháng.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== HOW TO USE & CARE SECTION (4 STEPS) ==================== -->
+    <section id="guide" class="py-20 lg:py-28 bg-cream-base">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Header -->
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <span class="inline-block px-4 py-1.5 rounded-full bg-forest-100 text-forest-800 text-xs font-bold uppercase tracking-widest mb-3" data-i18n="guide.eyebrow">
+                    Hướng Dẫn Sử Dụng & Bảo Quản
+                </span>
+                <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-forest-900 mb-4" data-i18n="guide.title">
+                    4 Bước Đơn Giản Để Sử Dụng Bền Lâu Đến 1 Năm
+                </h2>
+                <p class="text-charcoal-light text-base sm:text-lg leading-relaxed" data-i18n="guide.subtitle">
+                    Chăm sóc đúng cách giúp lớp sáp ong luôn giữ được độ kết dính tự nhiên và vệ sinh sạch sẽ sau mỗi lần sử dụng.
+                </p>
+            </div>
+
+            <!-- 4 Visual Steps Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
+                
+                <!-- Step 1 -->
+                <div class="relative bg-cream-card rounded-3xl p-7 border border-forest-700/10 shadow-soft text-center group hover:border-honey-500/60 transition-all">
+                    <div class="w-10 h-10 rounded-full bg-honey-500 text-white font-bold text-base flex items-center justify-center mx-auto mb-5 shadow-honey">
+                        1
+                    </div>
+                    <!-- Custom Step 1 SVG -->
+                    <div class="w-20 h-20 mx-auto mb-4 rounded-2xl bg-honey-50 flex items-center justify-center text-honey-600">
+                        <svg class="w-11 h-11" viewBox="0 0 48 48" fill="none">
+                            <path d="M14 26C14 20 19 16 24 16C29 16 34 20 34 26V34H14V26Z" fill="#F4B942" fill-opacity="0.35" stroke="#C88D0D" stroke-width="2.2"/>
+                            <path d="M18 11C18 11 16 8 18 6M24 10C24 10 22 7 24 5M30 11C30 11 28 8 30 6" stroke="#E6A817" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-forest-900 mb-2.5" data-i18n="guide.s1Title">Làm Ấm & Tạo Hình</h3>
+                    <p class="text-sm text-charcoal-light leading-relaxed" data-i18n="guide.s1Desc">
+                        Đặt màng bọc lên thực phẩm hoặc miệng bát, dùng hơi ấm hai lòng bàn tay áp nhẹ 3–5 giây để màng mềm và bám dính chắc chắn.
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative bg-cream-card rounded-3xl p-7 border border-forest-700/10 shadow-soft text-center group hover:border-honey-500/60 transition-all">
+                    <div class="w-10 h-10 rounded-full bg-forest-700 text-white font-bold text-base flex items-center justify-center mx-auto mb-5 shadow-md">
+                        2
+                    </div>
+                    <!-- Custom Step 2 SVG -->
+                    <div class="w-20 h-20 mx-auto mb-4 rounded-2xl bg-forest-50 flex items-center justify-center text-forest-700">
+                        <svg class="w-11 h-11" viewBox="0 0 48 48" fill="none">
+                            <path d="M24 10C24 10 34 21 34 28C34 33.5228 29.5228 38 24 38C18.4772 38 14 33.5228 14 28C14 21 24 10 24 10Z" fill="#3A7D44" fill-opacity="0.25" stroke="#2D5A27" stroke-width="2.2"/>
+                            <circle cx="34" cy="14" r="2.5" fill="#F4B942"/>
+                            <circle cx="13" cy="17" r="2" fill="#F4B942"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-forest-900 mb-2.5" data-i18n="guide.s2Title">Rửa Nhẹ Bằng Nước Lạnh</h3>
+                    <p class="text-sm text-charcoal-light leading-relaxed" data-i18n="guide.s2Desc">
+                        Sau khi dùng, rửa nhẹ nhàng dưới vòi nước lạnh hoặc nước mát cùng một ít nước rửa chén dịu nhẹ (không chứa cồn). Không vò mạnh.
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative bg-cream-card rounded-3xl p-7 border border-forest-700/10 shadow-soft text-center group hover:border-honey-500/60 transition-all">
+                    <div class="w-10 h-10 rounded-full bg-honey-500 text-white font-bold text-base flex items-center justify-center mx-auto mb-5 shadow-honey">
+                        3
+                    </div>
+                    <!-- Custom Step 3 SVG -->
+                    <div class="w-20 h-20 mx-auto mb-4 rounded-2xl bg-honey-50 flex items-center justify-center text-honey-600">
+                        <svg class="w-11 h-11" viewBox="0 0 48 48" fill="none">
+                            <path d="M8 14H40" stroke="#2D5A27" stroke-width="2.2" stroke-linecap="round"/>
+                            <rect x="14" y="14" width="20" height="22" rx="3" fill="#F4B942" fill-opacity="0.35" stroke="#C88D0D" stroke-width="2"/>
+                            <path d="M18 11V17M30 11V17" stroke="#2D5A27" stroke-width="2.2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-forest-900 mb-2.5" data-i18n="guide.s3Title">Phơi Khô Tự Nhiên</h3>
+                    <p class="text-sm text-charcoal-light leading-relaxed" data-i18n="guide.s3Desc">
+                        Vẩy ráo nước và treo lên giá hoặc kẹp phơi ở nơi thoáng mát, tránh ánh nắng mặt trời gay gắt trực tiếp làm chảy sáp.
+                    </p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="relative bg-cream-card rounded-3xl p-7 border border-forest-700/10 shadow-soft text-center group hover:border-honey-500/60 transition-all">
+                    <div class="w-10 h-10 rounded-full bg-forest-700 text-white font-bold text-base flex items-center justify-center mx-auto mb-5 shadow-md">
+                        4
+                    </div>
+                    <!-- Custom Step 4 SVG -->
+                    <div class="w-20 h-20 mx-auto mb-4 rounded-2xl bg-forest-50 flex items-center justify-center text-forest-700">
+                        <svg class="w-11 h-11" viewBox="0 0 48 48" fill="none">
+                            <rect x="11" y="15" width="26" height="8" rx="3" fill="#3A7D44" fill-opacity="0.25" stroke="#2D5A27" stroke-width="2"/>
+                            <rect x="11" y="25" width="26" height="8" rx="3" fill="#F4B942" fill-opacity="0.35" stroke="#C88D0D" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-forest-900 mb-2.5" data-i18n="guide.s4Title">Gấp Gọn & Cất Giữ</h3>
+                    <p class="text-sm text-charcoal-light leading-relaxed" data-i18n="guide.s4Desc">
+                        Khi màng đã khô hoàn toàn, gấp gọn gàng hoặc cuộn tròn cất trong ngăn kéo bếp khô ráo, sẵn sàng cho lần sử dụng tiếp theo.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CONTACT & B2B / CATALOGUE INQUIRY SECTION ==================== -->
+    <section id="contact" class="py-20 lg:py-28 bg-cream-card border-t border-forest-700/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start reveal">
+                
+                <!-- Left Company Contact Details -->
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="inline-block px-4 py-1.5 rounded-full bg-honey-100 text-honey-700 text-xs font-bold uppercase tracking-widest" data-i18n="contact.eyebrow">
+                        Kết Nối Với Chúng Tôi
+                    </span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-forest-900 leading-tight" data-i18n="contact.title">
+                        Liên Hệ Hợp Tác & Nhận Hồ Sơ Sản Phẩm
+                    </h2>
+                    <p class="text-charcoal-light text-base leading-relaxed" data-i18n="contact.subtitle">
+                        Quý khách hàng, đại lý phân phối, cửa hàng thực phẩm hữu cơ hoặc doanh nghiệp quan tâm đến sản phẩm màng bọc sáp ong BEE GREEN vui lòng liên hệ trực tiếp với chúng tôi.
+                    </p>
+
+                    <!-- Contact Information Cards -->
+                    <div class="space-y-4 pt-2">
+                        <!-- Company Name & Address -->
+                        <div class="flex items-start gap-4 p-4 rounded-2xl bg-cream-base border border-forest-700/10">
+                            <div class="w-11 h-11 rounded-xl bg-forest-700 text-white flex items-center justify-center shrink-0">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-forest-900 text-sm" data-i18n="contact.compName">CÔNG TY TNHH BEE GREEN (BEE GREEN CO., LTD.)</h4>
+                                <p class="text-xs sm:text-sm text-charcoal-light mt-1" data-i18n="contact.address">
+                                    Khu Công Nghệ Xanh, Phường Thảo Điền, TP. Thủ Đức, TP. Hồ Chí Minh, Việt Nam
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Hotline & Email -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="p-4 rounded-2xl bg-cream-base border border-forest-700/10">
+                                <div class="flex items-center gap-2.5 text-forest-700 font-bold text-xs uppercase tracking-wider mb-1">
+                                    <svg class="w-4 h-4 text-honey-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                    </svg>
+                                    <span data-i18n="contact.hotlineLabel">Hotline Tư Vấn</span>
+                                </div>
+                                <p class="font-semibold text-forest-900 text-sm">(+84) 28 3899 6868</p>
+                            </div>
+
+                            <div class="p-4 rounded-2xl bg-cream-base border border-forest-700/10">
+                                <div class="flex items-center gap-2.5 text-forest-700 font-bold text-xs uppercase tracking-wider mb-1">
+                                    <svg class="w-4 h-4 text-honey-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                    </svg>
+                                    <span>Email</span>
+                                </div>
+                                <p class="font-semibold text-forest-900 text-sm break-all">info@beegreen.vn</p>
+                            </div>
+                        </div>
+
+                        <!-- Website & Working Hours -->
+                        <div class="p-4 rounded-2xl bg-forest-50 border border-forest-600/20 flex items-center justify-between text-xs sm:text-sm">
+                            <span class="text-forest-800 font-medium" data-i18n="contact.hours">Giờ làm việc: Thứ 2 – Thứ 7 (08:00 – 17:30 GMT+7)</span>
+                            <span class="font-bold text-forest-700">www.beegreen.vn</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Inquiry & Catalogue Request Form -->
+                <div class="lg:col-span-7">
+                    <div class="bg-cream-base rounded-[2rem] p-7 sm:p-10 border border-forest-700/15 shadow-soft">
+                        <h3 class="font-serif text-2xl font-bold text-forest-900 mb-2" data-i18n="form.title">
+                            Gửi Yêu Cầu Tư Vấn & Nhận Catalogue Sản Phẩm
+                        </h3>
+                        <p class="text-sm text-charcoal-light mb-6" data-i18n="form.subtitle">
+                            Vui lòng điền thông tin bên dưới. Đội ngũ chuyên viên của BEE GREEN sẽ phản hồi trong vòng 24 giờ làm việc.
+                        </p>
+
+                        <!-- Confirmation Message Box (Hidden by default) -->
+                        <div id="form-success-banner" class="hidden mb-6 p-5 rounded-2xl bg-forest-100 border border-forest-600/30 text-forest-900">
+                            <div class="flex items-start gap-3">
+                                <div class="w-8 h-8 rounded-full bg-forest-700 text-white flex items-center justify-center shrink-0 mt-0.5">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-base text-forest-900" data-i18n="form.successTitle">Gửi Thông Tin Thành Công!</h4>
+                                    <p class="text-sm text-forest-800 mt-1" data-i18n="form.successMsg">
+                                        Cảm ơn quý khách đã quan tâm đến Công ty TNHH BEE GREEN. Chúng tôi đã ghi nhận yêu cầu và sẽ gửi Catalogue sản phẩm cùng thông tin tư vấn đến bạn sớm nhất.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <form id="inquiry-form" class="space-y-5" novalidate>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                <!-- Full Name -->
+                                <div>
+                                    <label for="input-name" class="block text-xs font-bold uppercase tracking-wider text-charcoal mb-2" data-i18n="form.nameLabel">
+                                        Họ và tên / Người liên hệ *
+                                    </label>
+                                    <input type="text" id="input-name" required
+                                        class="w-full px-4 py-3.5 rounded-xl bg-cream-card border border-forest-700/20 text-charcoal text-sm focus:outline-none focus:border-forest-700 focus:ring-2 focus:ring-forest-700/15 transition-all"
+                                        data-i18n-placeholder="form.namePlaceholder"
+                                        placeholder="Nguyễn Văn An">
+                                </div>
+
+                                <!-- Company / Organization -->
+                                <div>
+                                    <label for="input-company" class="block text-xs font-bold uppercase tracking-wider text-charcoal mb-2" data-i18n="form.companyLabel">
+                                        Đơn vị / Công ty (Nếu có)
+                                    </label>
+                                    <input type="text" id="input-company"
+                                        class="w-full px-4 py-3.5 rounded-xl bg-cream-card border border-forest-700/20 text-charcoal text-sm focus:outline-none focus:border-forest-700 focus:ring-2 focus:ring-forest-700/15 transition-all"
+                                        data-i18n-placeholder="form.companyPlaceholder"
+                                        placeholder="Công ty / Cửa hàng thực phẩm sạch">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                <!-- Email -->
+                                <div>
+                                    <label for="input-email" class="block text-xs font-bold uppercase tracking-wider text-charcoal mb-2" data-i18n="form.emailLabel">
+                                        Địa chỉ Email *
+                                    </label>
+                                    <input type="email" id="input-email" required
+                                        class="w-full px-4 py-3.5 rounded-xl bg-cream-card border border-forest-700/20 text-charcoal text-sm focus:outline-none focus:border-forest-700 focus:ring-2 focus:ring-forest-700/15 transition-all"
+                                        placeholder="contact@company.com">
+                                </div>
+
+                                <!-- Inquiry Purpose -->
+                                <div>
+                                    <label for="input-topic" class="block text-xs font-bold uppercase tracking-wider text-charcoal mb-2" data-i18n="form.topicLabel">
+                                        Nhu cầu quan tâm
+                                    </label>
+                                    <select id="input-topic"
+                                        class="w-full px-4 py-3.5 rounded-xl bg-cream-card border border-forest-700/20 text-charcoal text-sm focus:outline-none focus:border-forest-700 focus:ring-2 focus:ring-forest-700/15 transition-all">
+                                        <option value="catalogue" data-i18n="form.opt1">Nhận Catalogue & Hồ sơ năng lực</option>
+                                        <option value="sample" data-i18n="form.opt2">Đăng ký nhận mẫu thử sản phẩm (B2B)</option>
+                                        <option value="distributor" data-i18n="form.opt3">Hợp tác đại lý phân phối / Xuất khẩu</option>
+                                        <option value="oem" data-i18n="form.opt4">Đặt thiết kế quà tặng doanh nghiệp (OEM)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Message -->
+                            <div>
+                                <label for="input-message" class="block text-xs font-bold uppercase tracking-wider text-charcoal mb-2" data-i18n="form.msgLabel">
+                                    Nội dung lời nhắn *
+                                </label>
+                                <textarea id="input-message" rows="4" required
+                                    class="w-full px-4 py-3.5 rounded-xl bg-cream-card border border-forest-700/20 text-charcoal text-sm focus:outline-none focus:border-forest-700 focus:ring-2 focus:ring-forest-700/15 transition-all"
+                                    data-i18n-placeholder="form.msgPlaceholder"
+                                    placeholder="Chia sẻ nhu cầu tìm hiểu sản phẩm hoặc hợp tác của quý khách..."></textarea>
+                            </div>
+
+                            <!-- Validation Warning Inline -->
+                            <p id="form-error-msg" class="hidden text-xs font-semibold text-red-600" data-i18n="form.errorMsg">
+                                Vui lòng điền đầy đủ các trường bắt buộc (*) và địa chỉ email hợp lệ.
+                            </p>
+
+                            <!-- Submit Button -->
+                            <button type="submit"
+                                class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-forest-700 hover:bg-forest-800 text-white font-semibold text-sm sm:text-base shadow-soft hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2.5">
+                                <span data-i18n="form.submitBtn">Gửi Yêu Cầu Tư Vấn</span>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="bg-forest-900 text-forest-100 pt-16 pb-10 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-white/10">
+                
+                <!-- Brand & Green Commitment -->
+                <div class="lg:col-span-5 space-y-4">
+                    <div class="flex items-center gap-3.5">
+                        <div class="w-16 h-16 rounded-2xl bg-white p-1.5 flex items-center justify-center shadow-md border border-honey-400/40 shrink-0">
+                            <img src="images/logo.png" width="202" height="202" decoding="async"
+                                 alt="BEEGREEN Logo" 
+                                 class="w-full h-full object-contain">
+                        </div>
+                        <div>
+                            <span class="font-serif font-bold text-2xl text-white tracking-tight block leading-none">
+                                BEE<span class="text-honey-400">GREEN</span>
+                            </span>
+                            <span class="text-xs text-forest-200 mt-1 block" data-i18n="brand.sub">Co., Ltd. • Sống Xanh</span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-forest-200 leading-relaxed max-w-md" data-i18n="footer.desc">
+                        Công ty TNHH BEE GREEN cam kết mang đến các giải pháp bảo quản thực phẩm thuần tự nhiên từ sáp ong Việt Nam, góp phần giảm thiểu rác thải nhựa vì một hành tinh xanh bền vững.
+                    </p>
+                    <!-- Language Switcher in Footer -->
+                    <div class="pt-2 flex items-center gap-2">
+                        <span class="text-xs text-forest-200/80 mr-1" data-i18n="footer.langLabel">Ngôn ngữ:</span>
+                        <button type="button" onclick="setLanguage('vi')" class="footer-lang-btn px-3 py-1 rounded-lg text-xs font-semibold bg-honey-500 text-forest-900">Tiếng Việt</button>
+                        <button type="button" onclick="setLanguage('en')" class="footer-lang-btn px-3 py-1 rounded-lg text-xs font-semibold bg-forest-800 text-forest-100 hover:bg-forest-700">English</button>
+                        <button type="button" onclick="setLanguage('fr')" class="footer-lang-btn px-3 py-1 rounded-lg text-xs font-semibold bg-forest-800 text-forest-100 hover:bg-forest-700">Français</button>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="lg:col-span-3 space-y-3">
+                    <h4 class="font-bold text-white text-sm uppercase tracking-wider" data-i18n="footer.linksTitle">Liên Kết Nhanh</h4>
+                    <ul class="space-y-2.5 text-sm text-forest-200">
+                        <li><a href="#home" class="hover:text-honey-400 transition-colors" data-i18n="nav.home">Trang chủ</a></li>
+                        <li><a href="#about" class="hover:text-honey-400 transition-colors" data-i18n="nav.about">Về Bee Green</a></li>
+                        <li><a href="#product" class="hover:text-honey-400 transition-colors" data-i18n="nav.product">Sản phẩm</a></li>
+                        <li><a href="#features" class="hover:text-honey-400 transition-colors" data-i18n="nav.features">Đặc tính & Công dụng</a></li>
+                        <li><a href="#guide" class="hover:text-honey-400 transition-colors" data-i18n="nav.guide">Hướng dẫn sử dụng</a></li>
+                    </ul>
+                </div>
+
+                <!-- Eco Standards -->
+                <div class="lg:col-span-4 space-y-3">
+                    <h4 class="font-bold text-white text-sm uppercase tracking-wider" data-i18n="footer.ecoTitle">Cam Kết Sinh Thái</h4>
+                    <ul class="space-y-2.5 text-sm text-forest-200">
+                        <li class="flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-honey-400"></span>
+                            <span data-i18n="footer.eco1">100% Thành phần phân hủy sinh học</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-honey-400"></span>
+                            <span data-i18n="footer.eco2">Không thử nghiệm trên động vật & Thu hoạch nhân đạo</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-honey-400"></span>
+                            <span data-i18n="footer.eco3">Bao bì giấy Kraft tái chế không nhựa</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-forest-200/70">
+                <p data-i18n="footer.copyright">© 2026 Công ty TNHH BEE GREEN (BEE GREEN Co., Ltd.). Bảo lưu mọi quyền.</p>
+                <p data-i18n="footer.showcaseNote">Trang thông tin giới thiệu doanh nghiệp & sản phẩm sinh thái.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== MULTILINGUAL TRANSLATION ENGINE & INTERACTIONS ==================== -->
+    <script>
+        // Complete, accurate translations for Vietnamese (VI), English (EN), and French (FR)
+        const translations = {
+            vi: {
+                pageTitle: "BEE GREEN Co., Ltd. | Màng Bọc Thực Phẩm Sáp Ong Tự Nhiên",
+                "brand.sub": "Co., Ltd. • Sống Xanh",
+                "nav.home": "Trang chủ",
+                "nav.about": "Về Bee Green",
+                "nav.product": "Sản phẩm",
+                "nav.features": "Đặc tính & Công dụng",
+                "nav.guide": "Hướng dẫn sử dụng",
+                "nav.contact": "Liên hệ",
+
+                "hero.badge": "100% Tự Nhiên • Tái Sử Dụng • Không Rác Thải Nhựa",
+                "hero.title": "Bảo Quản Thực Phẩm Tươi Ngon Bằng Tinh Túy Sáp Ong Tự Nhiên",
+                "hero.subtitle": "Công ty TNHH BEE GREEN mang đến giải pháp màng bọc thực phẩm hữu cơ thay thế hoàn toàn màng bọc nilon dùng một lần — an toàn cho sức khỏe gia đình và thân thiện với mẹ Trái Đất.",
+                "hero.ctaPrimary": "Khám Phá Sản Phẩm",
+                "hero.ctaSecondary": "Nhận Hồ Sơ Năng Lực & Tư Vấn",
+                "hero.stat1": "Nguyên liệu hữu cơ",
+                "hero.stat2": "Tháng tái sử dụng",
+                "hero.stat3": "Nhựa & Hóa chất BPA",
+                "hero.certTitle": "Chuẩn An Toàn Thực Phẩm",
+                "hero.certSub": "Phân hủy sinh học 100% trong tự nhiên",
+
+                "about.cardTag": "Câu Chuyện Thương Hiệu",
+                "about.cardTitle": "Từ Trăn Trở Về Rác Thải Nhựa Đến Giải Pháp Xanh Từ Tổ Ong",
+                "about.cardDesc": "Mỗi năm, hàng triệu tấn màng bọc nhựa dùng một lần bị thải ra môi trường. Công ty TNHH BEE GREEN ra đời tại Việt Nam với khát vọng kết hợp nguồn sáp ong tự nhiên dồi dào cùng vải sợi hữu cơ để tạo nên những tấm màng bọc bền vững, an toàn và đậm bản sắc thủ công bản địa.",
+                "about.step1Title": "Tuyển chọn nguyên liệu sạch",
+                "about.step1Desc": "Sáp ong thô tinh luyện tự nhiên, vải cotton dệt mộc không tẩy trắng hóa học.",
+                "about.step2Title": "Phủ sáp thủ công tỉ mỉ",
+                "about.step2Desc": "Kiểm soát nhiệt độ chuẩn xác giúp hỗn hợp sáp thẩm thấu đều từng thớ vải.",
+                "about.step3Title": "Kiểm định chất lượng & Đóng gói xanh",
+                "about.step3Desc": "Bao bì giấy tái chế 100%, sẵn sàng đồng hành cùng căn bếp hiện đại.",
+                "about.eyebrow": "Về Công Ty TNHH BEE GREEN",
+                "about.title": "Tiên Phong Kiến Tạo Lối Sống Xanh Bền Vững Trong Từng Gian Bếp",
+                "about.p1": "<strong>Công ty TNHH BEE GREEN (BEE GREEN Co., Ltd.)</strong> là doanh nghiệp chuyên nghiên cứu, sản xuất và cung ứng các dòng sản phẩm bao bì bảo quản thực phẩm sinh thái từ nguyên liệu tự nhiên tại Việt Nam.",
+                "about.p2": "Chúng tôi không chỉ tạo ra một sản phẩm thay thế nhựa thông thường, mà còn lan tỏa triết lý tiêu dùng có trách nhiệm: trân trọng thực phẩm tươi sạch, bảo vệ sức khỏe con người và gìn giữ hệ sinh thái tự nhiên cho thế hệ tương lai.",
+                "about.val1Title": "Bền Vững",
+                "about.val1Desc": "Giảm thiểu rác thải nhựa dùng một lần, vòng đời sản phẩm khép kín và phân hủy sinh học hoàn toàn.",
+                "about.val2Title": "An Toàn Tuyệt Đối",
+                "about.val2Desc": "Không chứa BPA, phthalates hay hóa chất tổng hợp; an toàn khi tiếp xúc trực tiếp với thực phẩm.",
+                "about.val3Title": "Đổi Mới Bản Địa",
+                "about.val3Desc": "Cải tiến công thức phủ sáp phù hợp khí hậu nhiệt đới, nâng cao độ dẻo dai và thẩm mỹ họa tiết.",
+
+                "product.eyebrow": "Sản Phẩm Chủ Lực",
+                "showcase.productLabel": "Cảm hứng thiết kế",
+                "showcase.productCaption": "Màng bọc sáp ong họa tiết thiên nhiên",
+                "showcase.packagingLabel": "Hình ảnh bao bì",
+                "showcase.packagingCaption": "Bộ màng bọc BEEGREEN — 3 kích cỡ S, M, L",
+                "showcase.vegetables": "Bảo quản rau củ",
+                "showcase.bread": "Gói bánh mì",
+                "showcase.bowls": "Đậy chén, bát và tô",
+                "product.title": "Màng Bọc Thực Phẩm Sáp Ong BEE GREEN",
+                "product.subtitle": "Sự kết hợp hoàn hảo từ 4 nguyên liệu 100% tự nhiên tạo nên lớp màng bảo vệ mềm mại, có khả năng tự kết dính bằng hơi ấm đôi tay và giữ trọn độ tươi ngon của thực phẩm.",
+                "ing.tag1": "Thành phần 01",
+                "ing.title1": "Sáp Ong Nguyên Chất",
+                "ing.desc1": "Khai thác bền vững từ các trang trại ong tự nhiên, tạo lớp màng chống thấm nước, kháng khuẩn và giữ ẩm tự nhiên cho thực phẩm.",
+                "ing.tag2": "Thành phần 02",
+                "ing.title2": "Vải Cotton Hữu Cơ",
+                "ing.desc2": "Sợi bông 100% cotton mềm mịn, thoáng khí, không nhuộm hóa chất độc hại, tạo cấu trúc bền chắc giúp tái sử dụng hàng trăm lần.",
+                "ing.tag3": "Thành phần 03",
+                "ing.title3": "Nhựa Thông Tự Nhiên",
+                "ing.desc3": "Nhựa cây thông tinh khiết mang lại độ bám dính tự nhiên đặc trưng, giúp màng bọc ôm khít miệng bát hoặc bề mặt rau củ.",
+                "ing.tag4": "Thành phần 04",
+                "ing.title4": "Dầu Jojoba & Dầu Dừa",
+                "ing.desc4": "Dầu thực vật ép lạnh hữu cơ giúp lớp sáp mềm dẻo, không bị nứt gãy khi gấp nếp và tăng cường khả năng kháng khuẩn tự nhiên.",
+
+                "sizes.eyebrow": "Quy Cách & Thông Số Kỹ Thuật",
+                "sizes.title": "Kích Thước Tiêu Chuẩn Cho Mọi Nhu Cầu Bảo Quản",
+                "sizes.tabAll": "Tất cả kích cỡ",
+                "sizes.popularBadge": "Phổ Biến Nhất",
+                "sizes.sTitle": "Cỡ Nhỏ — Trái Cây & Chén Nhỏ",
+                "sizes.sDesc": "Lý tưởng để bọc nửa quả chanh, quả bơ, hành tây, dưa chuột cắt dở, hũ gia vị hoặc đậy miệng cốc/chén nhỏ.",
+                "sizes.mTitle": "Cỡ Trung — Tô Thức Ăn & Bánh Mì",
+                "sizes.mDesc": "Kích thước đa năng nhất để đậy tô canh, đĩa thức ăn, gói bánh mì sandwich, phô mai khối hoặc các loại rau củ vừa.",
+                "sizes.lTitle": "Cỡ Lớn — Rau Xanh & Dưa Hấu",
+                "sizes.lDesc": "Phù hợp bọc nửa quả dưa hấu, bắp cải, bó rau lá lớn, ổ bánh mì sourdough nguyên ổ hoặc khay đựng thực phẩm lớn.",
+                "sizes.specLabel": "Định lượng sáp chuẩn:",
+                "sizes.oemNote": "BEE GREEN nhận sản xuất kích thước và in họa tiết thương hiệu riêng (OEM/ODM) cho doanh nghiệp, quà tặng xanh và đối tác xuất khẩu.",
+                "sizes.oemLink": "Liên hệ nhận thông số chi tiết →",
+
+                "feat.eyebrow": "Đặc Điểm & Đặc Tính Nổi Bật",
+                "feat.title": "Vì Sao Màng Bọc Sáp Ong Vượt Trội Hơn Màng Nhựa?",
+                "feat.subtitle": "Cơ chế bảo quản sinh học thông minh mô phỏng cấu trúc tự nhiên của tổ ong giúp thực phẩm tươi lâu hơn mà không gây hại cho môi trường.",
+                "feat.p1Title": "Kháng Khuẩn Tự Nhiên",
+                "feat.p1Desc": "Sáp ong nguyên chất và nhựa thông sở hữu đặc tính kháng khuẩn và kháng nấm tự nhiên, ức chế sự phát triển của vi sinh vật gây hư hỏng thực phẩm.",
+                "feat.p2Title": "Thoáng Khí & Giữ Ẩm Cân Bằng",
+                "feat.p2Desc": "Không gây bí hơi hay đọng nước như màng nilon. Màng sáp ong cho phép rau củ, phô mai và bánh mì \"thở\" tự nhiên, giữ độ giòn và độ ẩm lý tưởng.",
+                "feat.p3Title": "Tự Dính Bằng Hơi Ấm Bàn Tay",
+                "feat.p3Desc": "Chỉ cần áp nhẹ đôi bàn tay trong vài giây, nhiệt độ cơ thể làm mềm lớp sáp và nhựa thông giúp tấm màng ôm chặt mọi hình dáng tô đĩa hay trái cây.",
+                "feat.p4Title": "Tái Sử Dụng & Phân Hủy Sinh Học",
+                "feat.p4Desc": "Có thể rửa sạch và tái sử dụng từ 6 đến 12 tháng. Khi hết vòng đời sử dụng, sản phẩm phân hủy sinh học 100% thành mùn hữu cơ thân thiện với đất.",
+                "feat.p5Title": "Không Chứa BPA & Hóa Chất Độc Hại — An Toàn Cho Sức Khỏe",
+                "feat.p5Desc": "Khác với màng bọc nhựa PVC/PE có nguy cơ thôi nhiễm vi nhựa và chất phụ gia hóa dẻo vào thức ăn, màng bọc sáp ong BEE GREEN hoàn toàn thuần khiết từ thiên nhiên, mang lại hương thơm dịu nhẹ của mật ong rừng và an toàn cho cả trẻ nhỏ.",
+
+                "uses.eyebrow": "Công Dụng & Ứng Dụng Thực Tế",
+                "uses.title": "Đa Năng Trong Mọi Hoạt Động Của Đời Sống Hàng Ngày",
+                "uses.u1Title": "Bọc Trái Cây Cắt Dở",
+                "uses.u1Desc": "Giữ nửa quả bơ, chanh, táo, dưa hấu không bị thâm xỉn hay khô bề mặt trong tủ lạnh.",
+                "uses.u2Title": "Gói Rau Củ & Thảo Mộc Tươi",
+                "uses.u2Desc": "Giúp xà lách, rau thơm, cà rốt, bông cải xanh tươi giòn lâu hơn gấp nhiều ngày.",
+                "uses.u3Title": "Bọc Bánh Mì & Phô Mai",
+                "uses.u3Desc": "Giữ lớp vỏ bánh mì thủ công giòn rụm, ruột mềm ẩm và bảo quản phô mai chuẩn vị.",
+                "uses.u4Title": "Đậy Bát, Tô & Đĩa Thức Ăn",
+                "uses.u4Desc": "Ôm sát miệng tô thủy tinh, gốm sứ, inox để bảo quản thức ăn đã nấu chín để nguội.",
+                "uses.u5Title": "Gói Đồ Ăn Nhẹ Văn Phòng & Dã Ngoại (Picnic)",
+                "uses.u5Desc": "Thay thế hộp nhựa cồng kềnh để gói bánh sandwich, hạt dinh dưỡng, trái cây khô khi đi làm, đi học hoặc dã ngoại ngoài trời.",
+                "uses.warnTitle": "Lưu Ý Quan Trọng Khi Sử Dụng",
+                "uses.warn1": "<strong>Không dùng cho thịt sống, cá sống hoặc hải sản tươi sống</strong> (do không thể rửa màng bọc bằng nước sôi khử khuẩn).",
+                "uses.warn2": "<strong>Tránh nhiệt độ cao:</strong> Không dùng trong lò vi sóng, lò nướng, máy rửa chén hoặc bọc thức ăn còn đang nóng hổi (sáp ong tan chảy ở ~60°C).",
+                "uses.warn3": "<strong>An toàn trong ngăn mát & ngăn đông:</strong> Có thể bảo quản thực phẩm trong ngăn đông tủ lạnh tối đa 1 tháng.",
+
+                "guide.eyebrow": "Hướng Dẫn Sử Dụng & Bảo Quản",
+                "guide.title": "4 Bước Đơn Giản Để Sử Dụng Bền Lâu Đến 1 Năm",
+                "guide.subtitle": "Chăm sóc đúng cách giúp lớp sáp ong luôn giữ được độ kết dính tự nhiên và vệ sinh sạch sẽ sau mỗi lần sử dụng.",
+                "guide.s1Title": "Làm Ấm & Tạo Hình",
+                "guide.s1Desc": "Đặt màng bọc lên thực phẩm hoặc miệng bát, dùng hơi ấm hai lòng bàn tay áp nhẹ 3–5 giây để màng mềm và bám dính chắc chắn.",
+                "guide.s2Title": "Rửa Nhẹ Bằng Nước Lạnh",
+                "guide.s2Desc": "Sau khi dùng, rửa nhẹ nhàng dưới vòi nước lạnh hoặc nước mát cùng một ít nước rửa chén dịu nhẹ (không chứa cồn). Không vò mạnh.",
+                "guide.s3Title": "Phơi Khô Tự Nhiên",
+                "guide.s3Desc": "Vẩy ráo nước và treo lên giá hoặc kẹp phơi ở nơi thoáng mát, tránh ánh nắng mặt trời gay gắt trực tiếp làm chảy sáp.",
+                "guide.s4Title": "Gấp Gọn & Cất Giữ",
+                "guide.s4Desc": "Khi màng đã khô hoàn toàn, gấp gọn gàng hoặc cuộn tròn cất trong ngăn kéo bếp khô ráo, sẵn sàng cho lần sử dụng tiếp theo.",
+
+                "contact.eyebrow": "Kết Nối Với Chúng Tôi",
+                "contact.title": "Liên Hệ Hợp Tác & Nhận Hồ Sơ Sản Phẩm",
+                "contact.subtitle": "Quý khách hàng, đại lý phân phối, cửa hàng thực phẩm hữu cơ hoặc doanh nghiệp quan tâm đến sản phẩm màng bọc sáp ong BEE GREEN vui lòng liên hệ trực tiếp với chúng tôi.",
+                "contact.compName": "CÔNG TY TNHH BEE GREEN (BEE GREEN CO., LTD.)",
+                "contact.address": "Khu Công Nghệ Xanh, Phường Thảo Điền, TP. Thủ Đức, TP. Hồ Chí Minh, Việt Nam",
+                "contact.hotlineLabel": "Hotline Tư Vấn",
+                "contact.hours": "Giờ làm việc: Thứ 2 – Thứ 7 (08:00 – 17:30 GMT+7)",
+
+                "form.title": "Gửi Yêu Cầu Tư Vấn & Nhận Catalogue Sản Phẩm",
+                "form.subtitle": "Vui lòng điền thông tin bên dưới. Đội ngũ chuyên viên của BEE GREEN sẽ phản hồi trong vòng 24 giờ làm việc.",
+                "form.successTitle": "Gửi Thông Tin Thành Công!",
+                "form.successMsg": "Cảm ơn quý khách đã quan tâm đến Công ty TNHH BEE GREEN. Chúng tôi đã ghi nhận yêu cầu và sẽ gửi Catalogue sản phẩm cùng thông tin tư vấn đến bạn sớm nhất.",
+                "form.nameLabel": "Họ và tên / Người liên hệ *",
+                "form.namePlaceholder": "Nguyễn Văn An",
+                "form.companyLabel": "Đơn vị / Công ty (Nếu có)",
+                "form.companyPlaceholder": "Công ty / Cửa hàng thực phẩm sạch",
+                "form.emailLabel": "Địa chỉ Email *",
+                "form.topicLabel": "Nhu cầu quan tâm",
+                "form.opt1": "Nhận Catalogue & Hồ sơ năng lực",
+                "form.opt2": "Đăng ký nhận mẫu thử sản phẩm (B2B)",
+                "form.opt3": "Hợp tác đại lý phân phối / Xuất khẩu",
+                "form.opt4": "Đặt thiết kế quà tặng doanh nghiệp (OEM)",
+                "form.msgLabel": "Nội dung lời nhắn *",
+                "form.msgPlaceholder": "Chia sẻ nhu cầu tìm hiểu sản phẩm hoặc hợp tác của quý khách...",
+                "form.errorMsg": "Vui lòng điền đầy đủ các trường bắt buộc (*) và địa chỉ email hợp lệ.",
+                "form.submitBtn": "Gửi Yêu Cầu Tư Vấn",
+
+                "footer.desc": "Công ty TNHH BEE GREEN cam kết mang đến các giải pháp bảo quản thực phẩm thuần tự nhiên từ sáp ong Việt Nam, góp phần giảm thiểu rác thải nhựa vì một hành tinh xanh bền vững.",
+                "footer.langLabel": "Ngôn ngữ:",
+                "footer.linksTitle": "Liên Kết Nhanh",
+                "footer.ecoTitle": "Cam Kết Sinh Thái",
+                "footer.eco1": "100% Thành phần phân hủy sinh học",
+                "footer.eco2": "Không thử nghiệm trên động vật & Thu hoạch nhân đạo",
+                "footer.eco3": "Bao bì giấy Kraft tái chế không nhựa",
+                "footer.copyright": "© 2026 Công ty TNHH BEE GREEN (BEE GREEN Co., Ltd.). Bảo lưu mọi quyền.",
+                "footer.showcaseNote": "Trang thông tin giới thiệu doanh nghiệp & sản phẩm sinh thái."
+            },
+
+            en: {
+                pageTitle: "BEE GREEN Co., Ltd. | Natural Beeswax Food Wrap",
+                "brand.sub": "Co., Ltd. • Eco Living",
+                "nav.home": "Home",
+                "nav.about": "About Us",
+                "nav.product": "Products",
+                "nav.features": "Features & Uses",
+                "nav.guide": "How to Use",
+                "nav.contact": "Contact",
+
+                "hero.badge": "100% Natural • Reusable • Plastic-Free Living",
+                "hero.title": "Keep Food Naturally Fresh with Pure Beeswax Food Wraps",
+                "hero.subtitle": "BEE GREEN Co., Ltd. delivers an organic, reusable food storage solution designed to replace single-use plastic cling film—protecting your family's health and Mother Earth.",
+                "hero.ctaPrimary": "Explore Our Product",
+                "hero.ctaSecondary": "Request Catalogue & Inquiry",
+                "hero.stat1": "Organic ingredients",
+                "hero.stat2": "Months of reuse",
+                "hero.stat3": "Plastic & BPA chemicals",
+                "hero.certTitle": "Food-Grade Certified",
+                "hero.certSub": "100% Biodegradable & Compostable",
+
+                "about.cardTag": "Our Brand Story",
+                "about.cardTitle": "From Plastic Waste Concerns to a Sustainable Solution from the Beehive",
+                "about.cardDesc": "Millions of tons of single-use plastic wrap pollute our planet every year. Founded in Vietnam, BEE GREEN Co., Ltd. combines abundant local natural beeswax with organic cotton fabrics to craft durable, safe, and artisanal eco-wraps.",
+                "about.step1Title": "Pure Raw Material Sourcing",
+                "about.step1Desc": "Ethically harvested raw beeswax and unbleached, chemical-free organic cotton fabric.",
+                "about.step2Title": "Precision Handcrafted Infusion",
+                "about.step2Desc": "Carefully controlled temperatures ensure even wax penetration into every cotton fiber.",
+                "about.step3Title": "Quality Inspection & Eco Packaging",
+                "about.step3Desc": "100% recycled kraft paper packaging, ready for modern zero-waste kitchens.",
+                "about.eyebrow": "About BEE GREEN Co., Ltd.",
+                "about.title": "Pioneering Sustainable Eco-Living in Every Modern Kitchen",
+                "about.p1": "<strong>BEE GREEN Co., Ltd.</strong> is a specialized manufacturer and supplier of ecological food preservation wraps crafted from 100% natural ingredients in Vietnam.",
+                "about.p2": "Beyond offering a practical alternative to plastic film, we champion a philosophy of mindful consumption: cherishing fresh food, safeguarding human health, and preserving ecosystems for future generations.",
+                "about.val1Title": "Sustainability",
+                "about.val1Desc": "Eliminating single-use plastic waste with a circular product lifecycle that returns safely to the earth.",
+                "about.val2Title": "Uncompromised Safety",
+                "about.val2Desc": "Completely free from BPA, phthalates, and synthetic chemicals; safe for direct food contact.",
+                "about.val3Title": "Local Craft Innovation",
+                "about.val3Desc": "Refined wax formulas tailored for tropical climates, enhancing flexibility, grip, and botanical aesthetics.",
+
+                "product.eyebrow": "Flagship Product",
+                "showcase.productLabel": "Design inspiration",
+                "showcase.productCaption": "Nature-inspired beeswax food wraps",
+                "showcase.packagingLabel": "Product packaging",
+                "showcase.packagingCaption": "BEEGREEN wrap set — 3 sizes: S, M, L",
+                "showcase.vegetables": "Keeping vegetables fresh",
+                "showcase.bread": "Wrapping bread",
+                "showcase.bowls": "Covering bowls and dishes",
+                "product.title": "BEE GREEN Beeswax Food Wrap",
+                "product.subtitle": "A harmonious blend of four 100% natural ingredients creating a supple protective wrap that seals with the warmth of your hands and locks in freshness.",
+                "ing.tag1": "Ingredient 01",
+                "ing.title1": "Pure Natural Beeswax",
+                "ing.desc1": "Sustainably harvested from natural apiaries, providing a water-resistant, antibacterial, and moisture-locking barrier.",
+                "ing.tag2": "Ingredient 02",
+                "ing.title2": "Organic Cotton Fabric",
+                "ing.desc2": "Soft, breathable 100% cotton woven without toxic dyes, providing structural durability for hundreds of reuses.",
+                "ing.tag3": "Ingredient 03",
+                "ing.title3": "Natural Tree Resin",
+                "ing.desc3": "Pure pine resin gives the wrap its signature gentle tackiness so it clings securely around bowls and fresh produce.",
+                "ing.tag4": "Ingredient 04",
+                "ing.title4": "Organic Jojoba & Coconut Oil",
+                "ing.desc4": "Cold-pressed plant oils keep the wax coating pliable without cracking when folded and boost natural antimicrobial properties.",
+
+                "sizes.eyebrow": "Specifications & Standard Sizes",
+                "sizes.title": "Versatile Dimensions for Every Food Storage Need",
+                "sizes.tabAll": "All Sizes",
+                "sizes.popularBadge": "Most Popular",
+                "sizes.sTitle": "Small — Cut Fruits & Small Bowls",
+                "sizes.sDesc": "Ideal for wrapping half a lemon, avocado, onion, cucumber, spice jars, or covering small cups and ramekins.",
+                "sizes.mTitle": "Medium — Mixing Bowls & Bread",
+                "sizes.mDesc": "Our most versatile size for covering soup bowls, dinner plates, sandwiches, blocks of cheese, and mid-sized vegetables.",
+                "sizes.lTitle": "Large — Leafy Greens & Melons",
+                "sizes.lDesc": "Perfect for wrapping half a watermelon, cabbage, large bunches of greens, artisan sourdough loaves, or baking trays.",
+                "sizes.specLabel": "Standard wax weight:",
+                "sizes.oemNote": "BEE GREEN offers custom sizing and bespoke brand pattern printing (OEM/ODM) for corporate eco-gifts and export partners.",
+                "sizes.oemLink": "Request detailed specifications →",
+
+                "feat.eyebrow": "Key Features & Properties",
+                "feat.title": "Why Beeswax Wraps Outperform Plastic Cling Film?",
+                "feat.subtitle": "Smart biological preservation inspired by the beehive keeps food fresher longer without harming the planet.",
+                "feat.p1Title": "Naturally Antibacterial",
+                "feat.p1Desc": "Pure beeswax and tree resin possess inherent antibacterial and antifungal properties that inhibit food-spoiling microbes.",
+                "feat.p2Title": "Breathable Yet Moisture-Retaining",
+                "feat.p2Desc": "Unlike suffocating plastic film that traps condensation, beeswax wraps let produce, cheese, and bread breathe naturally.",
+                "feat.p3Title": "Self-Sealing with Hand Warmth",
+                "feat.p3Desc": "Simply press gently with your hands for a few seconds—body warmth softens the wax to mold tightly around any dish or fruit.",
+                "feat.p4Title": "Reusable & 100% Biodegradable",
+                "feat.p4Desc": "Washable and reusable for 6 to 12 months. At the end of its lifecycle, it is 100% biodegradable and home-compostable.",
+                "feat.p5Title": "BPA-Free & Non-Toxic — Safe for Family Health",
+                "feat.p5Desc": "Unlike PVC/PE plastic wraps that risk leaching microplastics and chemical plasticizers into food, BEE GREEN wraps are 100% pure nature, imparting a subtle honey aroma safe for children and adults alike.",
+
+                "uses.eyebrow": "Practical Uses & Applications",
+                "uses.title": "Versatile Solutions for Everyday Kitchen & Outdoor Life",
+                "uses.u1Title": "Wrapping Cut Fruits",
+                "uses.u1Desc": "Keep halved avocados, lemons, apples, and melons from browning or drying out in the refrigerator.",
+                "uses.u2Title": "Fresh Vegetables & Herbs",
+                "uses.u2Desc": "Keep lettuce, fresh herbs, carrots, and broccoli crisp and vibrant for days longer.",
+                "uses.u3Title": "Artisan Bread & Cheese",
+                "uses.u3Desc": "Maintain a crisp crust and soft crumb on fresh loaves while preserving gourmet cheeses at peak flavor.",
+                "uses.u4Title": "Covering Bowls & Plates",
+                "uses.u4Desc": "Seals snugly over glass, ceramic, or stainless-steel bowls to store cooled leftovers.",
+                "uses.u5Title": "Office Lunches & Outdoor Picnics",
+                "uses.u5Desc": "Replace bulky plastic containers when packing sandwiches, nuts, or dried fruits for work, school, or picnics.",
+                "uses.warnTitle": "Important Usage Guidelines",
+                "uses.warn1": "<strong>Do not use with raw meat, raw fish, or raw seafood</strong> (as wraps cannot be sanitized with boiling water).",
+                "uses.warn2": "<strong>Keep away from heat:</strong> Do not use in microwaves, ovens, dishwashers, or over hot food (beeswax melts around 60°C / 140°F).",
+                "uses.warn3": "<strong>Fridge & Freezer Safe:</strong> Safe for refrigerator storage and freezer use for up to 1 month.",
+
+                "guide.eyebrow": "How to Use & Care",
+                "guide.title": "4 Simple Steps for Up to One Year of Reuse",
+                "guide.subtitle": "Proper care preserves the natural tackiness of the beeswax coating and keeps your wraps hygienic after every use.",
+                "guide.s1Title": "Warm & Shape",
+                "guide.s1Desc": "Place the wrap over food or a bowl and press gently with warm hands for 3–5 seconds to soften and seal.",
+                "guide.s2Title": "Wash Gently in Cold Water",
+                "guide.s2Desc": "Rinse under cool or cold water with a drop of mild, alcohol-free dish soap. Avoid harsh scrubbing or wringing.",
+                "guide.s3Title": "Air Dry Naturally",
+                "guide.s3Desc": "Shake off excess water and hang on a dish rack or clothesline in a shaded, airy spot away from direct sunlight.",
+                "guide.s4Title": "Fold & Store",
+                "guide.s4Desc": "Once completely dry, fold neatly or roll up in a dry kitchen drawer, ready for your next meal.",
+
+                "contact.eyebrow": "Connect With Us",
+                "contact.title": "Partnership Inquiries & Product Catalogue",
+                "contact.subtitle": "Distributors, organic grocers, corporate buyers, and customers interested in BEE GREEN beeswax wraps are warmly invited to reach out.",
+                "contact.compName": "BEE GREEN CO., LTD. (CÔNG TY TNHH BEE GREEN)",
+                "contact.address": "Green Tech Park, Thao Dien Ward, Thu Duc City, Ho Chi Minh City, Vietnam",
+                "contact.hotlineLabel": "Consultation Hotline",
+                "contact.hours": "Business Hours: Mon – Sat (08:00 – 17:30 GMT+7)",
+
+                "form.title": "Request Consultation & Product Catalogue",
+                "form.subtitle": "Please complete the form below. Our BEE GREEN specialists will respond within 24 business hours.",
+                "form.successTitle": "Inquiry Submitted Successfully!",
+                "form.successMsg": "Thank you for your interest in BEE GREEN Co., Ltd. We have received your inquiry and will send our product catalogue and consultation details shortly.",
+                "form.nameLabel": "Full Name / Contact Person *",
+                "form.namePlaceholder": "John Doe",
+                "form.companyLabel": "Company / Organization (Optional)",
+                "form.companyPlaceholder": "Green Market / Distribution Co.",
+                "form.emailLabel": "Email Address *",
+                "form.topicLabel": "Area of Interest",
+                "form.opt1": "Request Product Catalogue & Company Profile",
+                "form.opt2": "Request B2B Product Samples",
+                "form.opt3": "Distribution / Export Partnership",
+                "form.opt4": "Custom Corporate Eco-Gifts (OEM/ODM)",
+                "form.msgLabel": "Your Message *",
+                "form.msgPlaceholder": "Tell us about your product inquiry or partnership goals...",
+                "form.errorMsg": "Please fill in all required fields (*) and enter a valid email address.",
+                "form.submitBtn": "Submit Inquiry",
+
+                "footer.desc": "BEE GREEN Co., Ltd. is dedicated to providing 100% natural food preservation solutions crafted from Vietnamese beeswax, reducing plastic waste for a greener planet.",
+                "footer.langLabel": "Language:",
+                "footer.linksTitle": "Quick Links",
+                "footer.ecoTitle": "Ecological Commitments",
+                "footer.eco1": "100% Biodegradable & Compostable Materials",
+                "footer.eco2": "Cruelty-Free & Ethical Beekeeping Sourcing",
+                "footer.eco3": "Plastic-Free Recycled Kraft Packaging",
+                "footer.copyright": "© 2026 BEE GREEN Co., Ltd. All rights reserved.",
+                "footer.showcaseNote": "Corporate & Ecological Product Showcase Website."
+            },
+
+            fr: {
+                pageTitle: "BEE GREEN Co., Ltd. | Emballage Alimentaire à la Cire d'Abeille",
+                "brand.sub": "Co., Ltd. • Vie Éco-Responsable",
+                "nav.home": "Accueil",
+                "nav.about": "À Propos",
+                "nav.product": "Produits",
+                "nav.features": "Propriétés & Usages",
+                "nav.guide": "Mode d'Emploi",
+                "nav.contact": "Contact",
+
+                "hero.badge": "100% Naturel • Réutilisable • Zéro Déchet Plastique",
+                "hero.title": "Préservez la Fraîcheur de Vos Aliments Grâce à la Cire d'Abeille Naturelle",
+                "hero.subtitle": "BEE GREEN Co., Ltd. propose une alternative écologique et réutilisable au film plastique jetable — saine pour votre famille et respectueuse de la planète.",
+                "hero.ctaPrimary": "Découvrir le Produit",
+                "hero.ctaSecondary": "Recevoir le Catalogue & Devis",
+                "hero.stat1": "Ingrédients biologiques",
+                "hero.stat2": "Mois de réutilisation",
+                "hero.stat3": "Plastique & BPA",
+                "hero.certTitle": "Certifié Contact Alimentaire",
+                "hero.certSub": "100% Biodégradable & Compostable",
+
+                "about.cardTag": "Notre Histoire",
+                "about.cardTitle": "De la Lutte Contre le Plastique à une Solution Naturelle Issue de la Ruche",
+                "about.cardDesc": "Chaque année, des millions de tonnes de film plastique à usage unique polluent notre environnement. Fondée au Vietnam, la société BEE GREEN associe la cire d'abeille naturelle au coton biologique pour créer des emballages durables et artisanaux.",
+                "about.step1Title": "Sélection de matières premières pures",
+                "about.step1Desc": "Cire d'abeille brute récoltée durablement et coton biologique non blanchi sans produits chimiques.",
+                "about.step2Title": "Enduction artisanale de précision",
+                "about.step2Desc": "Contrôle rigoureux de la température garantissant une imprégnation homogène des fibres.",
+                "about.step3Title": "Contrôle qualité & Emballage vert",
+                "about.step3Desc": "Emballage en papier kraft 100% recyclé, prêt pour les cuisines modernes zéro déchet.",
+                "about.eyebrow": "À Propos de BEE GREEN Co., Ltd.",
+                "about.title": "Pionnier d'un Mode de Vie Durable dans Chaque Cuisine",
+                "about.p1": "<strong>BEE GREEN Co., Ltd.</strong> est une entreprise spécialisée dans la recherche, la fabrication et la fourniture d'emballages alimentaires écologiques à base d'ingrédients naturels au Vietnam.",
+                "about.p2": "Au-delà d'une simple alternative au plastique, nous défendons une consommation responsable : valoriser les aliments frais, protéger la santé humaine et préserver les écosystèmes pour les générations futures.",
+                "about.val1Title": "Durabilité",
+                "about.val1Desc": "Réduction des déchets plastiques à usage unique grâce à un cycle de vie circulaire et biodégradable.",
+                "about.val2Title": "Sécurité Absolue",
+                "about.val2Desc": "Sans BPA, sans phtalates ni substances synthétiques ; totalement sûr au contact direct des aliments.",
+                "about.val3Title": "Innovation Artisanale",
+                "about.val3Desc": "Formule optimisée pour les climats tropicaux offrant souplesse, adhérence naturelle et esthétique soignée.",
+
+                "product.eyebrow": "Produit Phare",
+                "showcase.productLabel": "Inspiration de design",
+                "showcase.productCaption": "Emballages à la cire d’abeille aux motifs naturels",
+                "showcase.packagingLabel": "Emballage du produit",
+                "showcase.packagingCaption": "Ensemble BEEGREEN — 3 tailles : S, M, L",
+                "showcase.vegetables": "Conserver les légumes",
+                "showcase.bread": "Emballer le pain",
+                "showcase.bowls": "Couvrir les bols et plats",
+                "product.title": "Emballage Alimentaire Cire d'Abeille BEE GREEN",
+                "product.subtitle": "L'alliance parfaite de 4 ingrédients 100% naturels créant un film souple qui adhère grâce à la chaleur de vos mains et préserve toute la fraîcheur des aliments.",
+                "ing.tag1": "Ingrédient 01",
+                "ing.title1": "Cire d'Abeille Pure",
+                "ing.desc1": "Récoltée durablement dans des ruchers naturels, elle forme une barrière imperméable, antibactérienne et hydratante.",
+                "ing.tag2": "Ingrédient 02",
+                "ing.title2": "Coton Biologique",
+                "ing.desc2": "Tissu 100% coton doux et respirant, sans teintures toxiques, offrant une résistance idéale pour des centaines d'utilisations.",
+                "ing.tag3": "Ingrédient 03",
+                "ing.title3": "Résine de Pin Naturelle",
+                "ing.desc3": "La résine végétale pure confère une adhérence naturelle permettant à l'emballage d'épouser parfaitement bols et légumes.",
+                "ing.tag4": "Ingrédient 04",
+                "ing.title4": "Huile de Jojoba & Coco Bio",
+                "ing.desc4": "Huiles végétales pressées à froid assurant la souplesse de la cire sans craquelure et renforçant l'action antibactérienne.",
+
+                "sizes.eyebrow": "Spécifications & Formats Standards",
+                "sizes.title": "Des Dimensions Adaptées à Tous Vos Besoins de Conservation",
+                "sizes.tabAll": "Toutes les tailles",
+                "sizes.popularBadge": "Le Plus Populaire",
+                "sizes.sTitle": "Taille S — Fruits Entamés & Petits Bols",
+                "sizes.sDesc": "Idéal pour envelopper un demi-citron, avocat, oignon, concombre ou couvrir de petits ramequins et tasses.",
+                "sizes.mTitle": "Taille M — Saladiers & Pains",
+                "sizes.mDesc": "Le format le plus polyvalent pour couvrir bols, assiettes, sandwichs, morceaux de fromage ou légumes moyens.",
+                "sizes.lTitle": "Taille L — Légumes Feuilles & Melons",
+                "sizes.lDesc": "Parfait pour envelopper un demi-melon, un chou, des bouquets d'herbes, un pain au levain entier ou grands plats.",
+                "sizes.specLabel": "Poids de cire standard :",
+                "sizes.oemNote": "BEE GREEN réalise des formats sur mesure et l'impression de motifs personnalisés (OEM/ODM) pour cadeaux d'affaires et partenaires export.",
+                "sizes.oemLink": "Demander les fiches techniques →",
+
+                "feat.eyebrow": "Caractéristiques & Propriétés Clés",
+                "feat.title": "Pourquoi l'Emballage Cire d'Abeille Surpasse le Film Plastique ?",
+                "feat.subtitle": "Une conservation biologique inspirée de la ruche qui prolonge la fraîcheur des aliments sans nuire à l'environnement.",
+                "feat.p1Title": "Antibactérien Naturel",
+                "feat.p1Desc": "La cire d'abeille pure et la résine de pin possèdent des propriétés antibactériennes et antifongiques naturelles freinant l'altération.",
+                "feat.p2Title": "Respirant & Régulateur d'Humidité",
+                "feat.p2Desc": "Contrairement au film plastique qui favorise la condensation, la cire d'abeille laisse respirer légumes, fromages et pains.",
+                "feat.p3Title": "Auto-Adhésif par la Chaleur des Mains",
+                "feat.p3Desc": "Pressez délicatement avec vos mains quelques secondes : la chaleur corporelle assouplit la cire pour sceller hermétiquement.",
+                "feat.p4Title": "Réutilisable & 100% Biodégradable",
+                "feat.p4Desc": "Lavable et réutilisable pendant 6 à 12 mois. En fin de vie, il est 100% biodégradable et compostable naturellement.",
+                "feat.p5Title": "Sans BPA ni Substances Toxiques — Sain pour Toute la Famille",
+                "feat.p5Desc": "Contrairement aux films PVC/PE susceptibles de libérer des microplastiques et phtalates, les emballages BEE GREEN sont 100% naturels avec un doux parfum de miel, sans danger pour les enfants.",
+
+                "uses.eyebrow": "Usages & Applications Pratiques",
+                "uses.title": "Polyvalent au Quotidien dans la Cuisine et en Déplacement",
+                "uses.u1Title": "Fruits Coupés",
+                "uses.u1Desc": "Préserve les moitiés d'avocat, citron, pomme ou pastèque de l'oxydation et du dessèchement au réfrigérateur.",
+                "uses.u2Title": "Légumes Frais & Herbes Aromatiques",
+                "uses.u2Desc": "Garde la laitue, les herbes fraîches, les carottes et le brocoli croquants plusieurs jours de plus.",
+                "uses.u3Title": "Pains Artisanaux & Fromages",
+                "uses.u3Desc": "Maintient une croûte croustillante et une mie tendre tout en préservant les arômes des fromages affinés.",
+                "uses.u4Title": "Couvrir Bols, Saladiers & Assiettes",
+                "uses.u4Desc": "Adhère parfaitement sur le verre, la céramique ou l'inox pour conserver les plats refroidis.",
+                "uses.u5Title": "Déjeuners au Bureau & Pique-Niques",
+                "uses.u5Desc": "Remplace les boîtes en plastique encombrantes pour emballer sandwichs, fruits secs et collations en sortie.",
+                "uses.warnTitle": "Précautions d'Utilisation Importantes",
+                "uses.warn1": "<strong>Ne pas utiliser avec de la viande crue, du poisson ou des fruits de mer crus</strong> (ne supporte pas le lavage à l'eau bouillante).",
+                "uses.warn2": "<strong>Tenir éloigné de la chaleur :</strong> Ne pas mettre au micro-ondes, au four, au lave-vaisselle ni sur des plats chauds (fusion à ~60°C).",
+                "uses.warn3": "<strong>Compatible réfrigérateur & congélateur :</strong> Convient au réfrigérateur et au congélateur jusqu'à 1 mois.",
+
+                "guide.eyebrow": "Mode d'Emploi & Entretien",
+                "guide.title": "4 Étapes Simples pour une Durée de Vie Jusqu'à 1 An",
+                "guide.subtitle": "Un entretien adapté préserve l'adhérence naturelle de la cire d'abeille et garantit une hygiène irréprochable.",
+                "guide.s1Title": "Chauffer & Façonner",
+                "guide.s1Desc": "Placez l'emballage sur l'aliment ou le bol et appuyez 3 à 5 secondes avec vos mains chaudes pour le sceller.",
+                "guide.s2Title": "Laver Doucement à l'Eau Froide",
+                "guide.s2Desc": "Rincez à l'eau froide ou tiède avec une goutte de savon doux sans alcool. Ne pas frotter ni essorer fortement.",
+                "guide.s3Title": "Sécher à l'Air Libre",
+                "guide.s3Desc": "Secouez l'excès d'eau et laissez sécher sur un égouttoir à l'abri du soleil direct et des sources de chaleur.",
+                "guide.s4Title": "Plier & Ranger",
+                "guide.s4Desc": "Une fois bien sec, pliez-le ou roulez-le dans un tiroir sec de cuisine, prêt pour la prochaine utilisation.",
+
+                "contact.eyebrow": "Contactez-Nous",
+                "contact.title": "Partenariats Professionnels & Catalogue Produits",
+                "contact.subtitle": "Distributeurs, épiceries biologiques, entreprises et particuliers souhaitant découvrir les emballages BEE GREEN, contactez notre équipe.",
+                "contact.compName": "BEE GREEN CO., LTD. (CÔNG TY TNHH BEE GREEN)",
+                "contact.address": "Parc Technologique Vert, Quartier Thao Dien, Ville de Thu Duc, Hô Chi Minh-Ville, Vietnam",
+                "contact.hotlineLabel": "Ligne Directe Conseil",
+                "contact.hours": "Horaires : Lun – Sam (08h00 – 17h30 GMT+7)",
+
+                "form.title": "Demande d'Information & Catalogue Produits",
+                "form.subtitle": "Veuillez remplir le formulaire ci-dessous. Nos conseillers BEE GREEN vous répondront sous 24 heures ouvrées.",
+                "form.successTitle": "Demande Envoyée avec Succès !",
+                "form.successMsg": "Merci pour votre intérêt envers BEE GREEN Co., Ltd. Votre demande a bien été enregistrée et nous vous enverrons notre catalogue très prochainement.",
+                "form.nameLabel": "Nom complet / Interlocuteur *",
+                "form.namePlaceholder": "Jean Dupont",
+                "form.companyLabel": "Société / Organisation (Optionnel)",
+                "form.companyPlaceholder": "Épicerie Bio / Société de distribution",
+                "form.emailLabel": "Adresse E-mail *",
+                "form.topicLabel": "Objet de la demande",
+                "form.opt1": "Recevoir le Catalogue & Profil d'Entreprise",
+                "form.opt2": "Demander des échantillons B2B",
+                "form.opt3": "Partenariat de distribution / Export",
+                "form.opt4": "Cadeaux d'affaires écologiques sur mesure (OEM)",
+                "form.msgLabel": "Votre message *",
+                "form.msgPlaceholder": "Précisez votre besoin d'information ou projet de partenariat...",
+                "form.errorMsg": "Veuillez remplir tous les champs obligatoires (*) et saisir une adresse e-mail valide.",
+                "form.submitBtn": "Envoyer la Demande",
+
+                "footer.desc": "BEE GREEN Co., Ltd. s'engage à fournir des solutions de conservation alimentaire 100% naturelles à base de cire d'abeille du Vietnam, réduisant les déchets plastiques pour une planète plus verte.",
+                "footer.langLabel": "Langue :",
+                "footer.linksTitle": "Liens Rapides",
+                "footer.ecoTitle": "Engagements Écologiques",
+                "footer.eco1": "Matériaux 100% biodégradables et compostables",
+                "footer.eco2": "Apiculture éthique et respectueuse des abeilles",
+                "footer.eco3": "Emballage en papier Kraft recyclé sans plastique",
+                "footer.copyright": "© 2026 BEE GREEN Co., Ltd. Tous droits réservés.",
+                "footer.showcaseNote": "Site vitrine de présentation d'entreprise et de produits écologiques."
+            }
+        };
+
+        let currentLang = 'vi';
+
+        // Switch Language Function (Updates all text, placeholders, document lang, and button states)
+        function setLanguage(lang) {
+            if (!translations[lang]) return;
+            currentLang = lang;
+            document.documentElement.lang = lang;
+
+            const dict = translations[lang];
+            document.title = dict.pageTitle;
+
+            // Update all elements with data-i18n
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (dict[key]) {
+                    el.innerHTML = dict[key];
+                }
+            });
+
+            // Update input/textarea placeholders
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                if (dict[key]) {
+                    el.setAttribute('placeholder', dict[key]);
+                }
+            });
+
+            // Update Navbar Language Pills
+            ['vi', 'en', 'fr'].forEach(code => {
+                const btn = document.getElementById(`lang-btn-${code}`);
+                if (btn) {
+                    if (code === lang) {
+                        btn.classList.add('bg-forest-700', 'text-white', 'shadow-sm');
+                        btn.classList.remove('text-charcoal-light', 'hover:text-forest-700');
+                    } else {
+                        btn.classList.remove('bg-forest-700', 'text-white', 'shadow-sm');
+                        btn.classList.add('text-charcoal-light', 'hover:text-forest-700');
+                    }
+                }
+            });
+
+            // Update Footer Language Buttons
+            document.querySelectorAll('.footer-lang-btn').forEach(btn => {
+                const isMatch = btn.getAttribute('onclick').includes(`'${lang}'`);
+                if (isMatch) {
+                    btn.className = 'footer-lang-btn px-3 py-1 rounded-lg text-xs font-semibold bg-honey-500 text-forest-900 transition-colors';
+                } else {
+                    btn.className = 'footer-lang-btn px-3 py-1 rounded-lg text-xs font-semibold bg-forest-800 text-forest-100 hover:bg-forest-700 transition-colors';
+                }
+            });
+        }
+
+        // Interactive Size Filter Tabs
+        function selectSizeTab(size) {
+            // Update active tab styling
+            document.querySelectorAll('.size-tab').forEach(tab => {
+                tab.classList.remove('bg-forest-700', 'text-white');
+                tab.classList.add('text-charcoal-light', 'hover:text-forest-700');
+            });
+            const activeTab = document.getElementById(`size-tab-${size}`);
+            if (activeTab) {
+                activeTab.classList.add('bg-forest-700', 'text-white');
+                activeTab.classList.remove('text-charcoal-light', 'hover:text-forest-700');
+            }
+
+            // Filter or highlight cards
+            const cards = document.querySelectorAll('.size-card');
+            cards.forEach(card => {
+                if (size === 'all') {
+                    card.classList.remove('hidden', 'ring-2', 'ring-forest-700');
+                } else if (card.getAttribute('data-size') === size) {
+                    card.classList.remove('hidden');
+                    card.classList.add('ring-2', 'ring-forest-700');
+                } else {
+                    card.classList.add('hidden');
+                    card.classList.remove('ring-2', 'ring-forest-700');
+                }
+            });
+        }
+
+        // Mobile Menu Toggle Logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const iconOpen = document.getElementById('menu-icon-open');
+        const iconClose = document.getElementById('menu-icon-close');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            const isHidden = mobileMenu.classList.contains('hidden');
+            if (isHidden) {
+                mobileMenu.classList.remove('hidden');
+                iconOpen.classList.add('hidden');
+                iconClose.classList.remove('hidden');
+            } else {
+                mobileMenu.classList.add('hidden');
+                iconOpen.classList.remove('hidden');
+                iconClose.classList.add('hidden');
+            }
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                iconOpen.classList.remove('hidden');
+                iconClose.classList.add('hidden');
+            });
+        });
+
+        // Contact / B2B Inquiry Form Handling (No alert(), smooth inline confirmation)
+        const inquiryForm = document.getElementById('inquiry-form');
+        const successBanner = document.getElementById('form-success-banner');
+        const errorMsg = document.getElementById('form-error-msg');
+
+        inquiryForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nameVal = document.getElementById('input-name').value.trim();
+            const emailVal = document.getElementById('input-email').value.trim();
+            const msgVal = document.getElementById('input-message').value.trim();
+            const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal);
+
+            if (!nameVal || !emailValid || !msgVal) {
+                errorMsg.classList.remove('hidden');
+                successBanner.classList.add('hidden');
+                return;
+            }
+
+            errorMsg.classList.add('hidden');
+            successBanner.classList.remove('hidden');
+            inquiryForm.reset();
+
+            // Smooth scroll to confirmation message
+            successBanner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        });
+
+        // Scroll Reveal Intersection Observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -40px 0px'
+        };
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            revealObserver.observe(el);
+        });
+
+        // Navbar subtle shadow on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 20) {
+                navbar.classList.add('shadow-soft');
+            } else {
+                navbar.classList.remove('shadow-soft');
+            }
+        });
+    </script>
+</body>
+</html>
